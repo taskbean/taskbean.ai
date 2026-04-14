@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — taskbean</title>
+  <meta name="description" content="Why taskbean exists — the mission behind a fully local, privacy-first AI task manager.">
+  <link rel="canonical" href="https://taskbean.ai/about.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="vendor/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="taskbean home">
+        <img src="assets/wordmark-nav.png" alt="taskbean" class="nav__wordmark" width="115" height="32">
+      </a>
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav__links">
+        <a href="how-it-works.html" class="nav__link">How It Works</a>
+        <a href="docs.html" class="nav__link">Docs</a>
+        <a href="about.html" class="nav__link">About</a>
+      </div>
+      <div class="nav__actions">
+        <a href="https://github.com/taskbean/taskbean" class="nav__github" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>Star on GitHub</span>
+        </a>
+        <a href="https://github.com/taskbean/taskbean#install" class="btn btn--primary">Download</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ ABOUT HERO ═══ -->
+  <section class="about-hero">
+    <div class="container">
+      <span class="badge mb-lg">About</span>
+      <h1>The bean has a thesis</h1>
+      <p>Every productivity app wants your data on their servers. Every AI assistant needs an API key and a monthly bill. We think that's broken.</p>
+    </div>
+  </section>
+
+  <!-- ═══ MANIFESTO ═══ -->
+  <section style="padding-block: var(--s-2xl) var(--s-3xl);">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <h2 style="margin-bottom: var(--s-lg);">Why local-first matters</h2>
+        <p style="font-size: clamp(1rem, 1.3vw, 1.15rem); margin-bottom: var(--s-lg);">
+          The AI revolution brought incredible tools — but it also brought a trade-off most people accepted without question: <strong style="color: var(--c-text);">your data goes to someone else's computer.</strong>
+        </p>
+        <p style="font-size: clamp(1rem, 1.3vw, 1.15rem); margin-bottom: var(--s-lg);">
+          Your task list is one of the most intimate data sets about your life. It knows what you're working on, what you're worried about, what you're procrastinating on, and what your deadlines are. Sending that to a cloud API for processing feels wrong.
+        </p>
+        <p style="font-size: clamp(1rem, 1.3vw, 1.15rem); margin-bottom: var(--s-lg);">
+          Modern hardware changed the equation. NPUs, GPUs, and fast CPUs can run small language models locally with surprisingly good quality. Microsoft's Foundry Local SDK makes on-device inference accessible. The models are getting smaller, the hardware is getting faster, and the excuses for cloud-only AI are running out.
+        </p>
+        <p style="font-size: clamp(1rem, 1.3vw, 1.15rem);">
+          <strong style="color: var(--c-text);">taskbean</strong> is a bet that the future of personal AI is local. Not because cloud AI isn't powerful — it is — but because not everything needs to be powerful. Sometimes you just need a bean that keeps track of your tasks and doesn't phone home.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VALUES ═══ -->
+  <section class="values">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>What we believe</h2>
+      </div>
+
+      <div class="values__grid stagger">
+        <div class="value-card reveal">
+          <div class="value-card__icon"><i data-lucide="lock"></i></div>
+          <h3>Privacy is a default, not a feature</h3>
+          <p class="text-2">Your data shouldn't leave your machine unless you explicitly choose to send it somewhere. No telemetry, no analytics, no "anonymized" data collection. Zero means zero.</p>
+        </div>
+
+        <div class="value-card reveal">
+          <div class="value-card__icon"><i data-lucide="badge-dollar-sign"></i></div>
+          <h3>AI shouldn't cost money to use</h3>
+          <p class="text-2">If the model runs on your own hardware, there's no marginal cost per request. No API keys, no token budgets, no "you've used 80% of your free tier" warnings. Use it as much as you want.</p>
+        </div>
+
+        <div class="value-card reveal">
+          <div class="value-card__icon"><i data-lucide="unlock"></i></div>
+          <h3>Open source builds trust</h3>
+          <p class="text-2">When we say "no data leaves your machine," you can verify it. Read the source. Audit the network calls. Fork it. MIT licensed — no tricks, no dual licensing, no "community edition" limitations.</p>
+        </div>
+
+        <div class="value-card reveal">
+          <div class="value-card__icon"><i data-lucide="wrench"></i></div>
+          <h3>Developers deserve better tools</h3>
+          <p class="text-2">Task management for developers shouldn't feel like a Jira ticket. It should be fast, keyboard-driven, AI-native, and built for how developers actually work — in terminals, editors, and browsers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BUILDER ═══ -->
+  <section style="padding-block: var(--s-3xl);">
+    <div class="container container--narrow">
+      <div class="reveal" style="text-align: center;">
+        <h2 style="margin-bottom: var(--s-lg);">Built by</h2>
+        <p style="font-size: clamp(1rem, 1.3vw, 1.15rem); margin-inline: auto; margin-bottom: var(--s-lg);">
+          taskbean is built by <a href="https://github.com/nicholasdbrady" style="color: var(--c-primary); text-decoration: underline; text-underline-offset: 3px; font-weight: 600;">Nicholas Brady</a>, a developer who got tired of every productivity tool wanting his data, his money, or both.
+        </p>
+        <p style="font-size: clamp(1rem, 1.3vw, 1.15rem); margin-inline: auto; margin-bottom: var(--s-xl);">
+          The project lives under the <a href="https://github.com/taskbean" style="color: var(--c-primary); text-decoration: underline; text-underline-offset: 3px; font-weight: 600;">@taskbean</a> GitHub organization. Contributions are welcome — the bean doesn't care who writes the code, only that it ships.
+        </p>
+        <div class="hero__actions" style="justify-content: center;">
+          <a href="https://github.com/taskbean/taskbean" class="btn btn--primary">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+          <a href="https://buymeacoffee.com/nicholasdbrady" class="btn btn--ghost" target="_blank" rel="noopener">
+            ☕ Buy the bean a coffee
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ROADMAP ═══ -->
+  <section style="padding-block: var(--s-2xl) var(--s-3xl);">
+    <div class="container container--narrow">
+      <div class="section-header reveal">
+        <h2>Roadmap</h2>
+        <p>The bean has plans.</p>
+      </div>
+
+      <div class="stagger" style="display: flex; flex-direction: column; gap: var(--s-md);">
+        <div class="reveal" style="display: flex; align-items: flex-start; gap: var(--s-md); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-md); padding: var(--s-lg);">
+          <span style="font-size: 1.4rem; color: var(--c-primary);"><i data-lucide="terminal"></i></span>
+          <div>
+            <h3 style="font-size: 1rem; margin-bottom: 4px;">taskbean CLI</h3>
+            <p style="font-size: var(--fs-small); margin: 0;">Surface tasks and todos across local development repos from your terminal.</p>
+          </div>
+        </div>
+        <div class="reveal" style="display: flex; align-items: flex-start; gap: var(--s-md); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-md); padding: var(--s-lg);">
+          <span style="font-size: 1.4rem; color: var(--c-primary);"><i data-lucide="bot"></i></span>
+          <div>
+            <h3 style="font-size: 1rem; margin-bottom: 4px;">Agent Skill</h3>
+            <p style="font-size: var(--fs-small); margin: 0;">Expose taskbean as a callable skill for AI coding agents and Foundry workflows.</p>
+          </div>
+        </div>
+        <div class="reveal" style="display: flex; align-items: flex-start; gap: var(--s-md); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-md); padding: var(--s-lg);">
+          <span style="font-size: 1.4rem; color: var(--c-primary);"><i data-lucide="globe"></i></span>
+          <div>
+            <h3 style="font-size: 1rem; margin-bottom: 4px;">Browser Extension</h3>
+            <p style="font-size: var(--fs-small); margin: 0;">Highlight anything on the web, get AI-suggested tasks and read-later reminders.</p>
+          </div>
+        </div>
+        <div class="reveal" style="display: flex; align-items: flex-start; gap: var(--s-md); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-md); padding: var(--s-lg);">
+          <span style="font-size: 1.4rem; color: var(--c-primary);"><i data-lucide="refresh-cw"></i></span>
+          <div>
+            <h3 style="font-size: 1rem; margin-bottom: 4px;">Sync (opt-in)</h3>
+            <p style="font-size: var(--fs-small); margin: 0;">Bring your own backend. Your data, your rules. Sync only when you say so.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="reveal">The grind is real.<br>Keep it local.</h2>
+      <p class="reveal">Open source, MIT licensed, and built for developers who want<br>their AI tools to respect their privacy.</p>
+      <div class="hero__actions reveal">
+        <a href="https://github.com/taskbean/taskbean#install" class="btn btn--primary btn--large">Get Started</a>
+        <a href="docs.html" class="btn btn--ghost btn--large">Read the Docs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <span class="footer__brand"><img src="assets/wordmark-footer.png" alt="taskbean" class="footer__logo-img" width="173" height="48"></span>
+        <span class="footer__copy">MIT License · Built by <a href="https://github.com/nicholasdbrady" style="color: var(--c-text-2); text-decoration: underline; text-underline-offset: 2px;">Nicholas Brady</a></span>
+      </div>
+      <div class="footer__links">
+        <a href="https://github.com/taskbean/taskbean" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+        <a href="docs.html" class="footer__link">Docs</a>
+        <a href="about.html" class="footer__link">About</a>
+        <a href="https://github.com/taskbean/taskbean/issues" class="footer__link" target="_blank" rel="noopener">Issues</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

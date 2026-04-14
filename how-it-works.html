@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works — taskbean</title>
+  <meta name="description" content="Learn how taskbean uses on-device AI through Microsoft Foundry Local to manage your tasks privately. Architecture, technology stack, and data flow.">
+  <link rel="canonical" href="https://taskbean.ai/how-it-works.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="vendor/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="taskbean home">
+        <img src="assets/wordmark-nav.png" alt="taskbean" class="nav__wordmark" width="115" height="32">
+      </a>
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav__links">
+        <a href="how-it-works.html" class="nav__link">How It Works</a>
+        <a href="docs.html" class="nav__link">Docs</a>
+        <a href="about.html" class="nav__link">About</a>
+      </div>
+      <div class="nav__actions">
+        <a href="https://github.com/taskbean/taskbean" class="nav__github" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>Star on GitHub</span>
+        </a>
+        <a href="https://github.com/taskbean/taskbean#install" class="btn btn--primary">Download</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="hiw-hero">
+    <div class="container">
+      <span class="badge mb-lg">Architecture</span>
+      <h1>How taskbean works</h1>
+      <p>A local-first AI task manager built on on-device inference, real-time streaming, and zero-cloud architecture.</p>
+    </div>
+  </section>
+
+  <!-- ═══ ARCHITECTURE ═══ -->
+  <section class="arch-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>System Architecture</h2>
+        <p>Three layers, one machine. Everything runs on localhost.</p>
+      </div>
+
+      <div class="arch-diagram reveal">┌──────────────────────────────────────────────────────────────────────────────┐
+│                         <span style="color:var(--c-primary)">Browser (PWA)</span>                                     │
+│                                                                              │
+│  public/index.html — single-file vanilla JS SPA, no build step              │
+│  Themes · Model Picker · Telemetry Panel · AG-UI Chat · Service Worker      │
+└─────────────────────────────────┬────────────────────────────────────────────┘
+                                  │
+                          AG-UI SSE (Server-Sent Events)
+                                  │
+                                  ▼
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                      <span style="color:var(--c-primary)">Python Backend (FastAPI)</span>                              │
+│                                                                              │
+│  main.py ─── agent.py ─── tools.py ─── state.py                             │
+│     │                                                                        │
+│     ├── /api/command    →  AG-UI multi-turn tool-calling agent               │
+│     ├── /api/extract    →  File parsing via MCP + MarkItDown                 │
+│     ├── /api/models/*   →  Model catalog, switch, download                   │
+│     ├── /api/health     →  System metrics + model readiness                  │
+│     └── /api/telemetry  →  OTel span stream for nerd panel                   │
+└─────────────────────────────────┬────────────────────────────────────────────┘
+                                  │
+                        Foundry Local SDK (FFI)
+                                  │
+                                  ▼
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                       <span style="color:var(--c-accent)">On-Device AI Runtime</span>                                │
+│                                                                              │
+│  Microsoft Foundry Local — manages model lifecycle                           │
+│                                                                              │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐                          │
+│  │  <span style="color:var(--c-success)">NPU</span>        │  │  <span style="color:var(--c-success)">GPU</span>        │  │  <span style="color:var(--c-success)">CPU</span>        │                          │
+│  │  VitisAI EP  │  │  MIGraphX EP │  │  Default EP  │                          │
+│  └─────────────┘  └─────────────┘  └─────────────┘                          │
+│                                                                              │
+│  Models: Phi-4 Mini · Qwen 2.5 · Phi-4 Multimodal · more                    │
+└──────────────────────────────────────────────────────────────────────────────┘</div>
+    </div>
+  </section>
+
+  <!-- ═══ KEY CONCEPTS ═══ -->
+  <section class="steps">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Key Concepts</h2>
+        <p>The design decisions that make taskbean different.</p>
+      </div>
+
+      <div class="steps__grid stagger">
+        <div class="step reveal">
+          <h3>On-Device Inference</h3>
+          <p class="text-2">The AI model runs directly on your hardware through Microsoft Foundry Local. It automatically detects your NPU, GPU, or CPU and selects the fastest execution provider. No API keys, no cloud calls, no latency penalty — just direct hardware access.</p>
+        </div>
+        <div class="step reveal">
+          <h3>AG-UI Streaming</h3>
+          <p class="text-2">taskbean uses the <a href="https://github.com/ag-ui-protocol/ag-ui" style="color: var(--c-primary); text-decoration: underline; text-underline-offset: 2px;">AG-UI protocol</a> for real-time agent communication. Every chat response streams as Server-Sent Events — you see tokens arrive, tools execute, and state update live. No polling, no WebSocket complexity.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Agent + Tools</h3>
+          <p class="text-2">The Python backend runs a real multi-turn agent with tool-calling. When you say <em>"remind me to stretch in 30 minutes"</em>, the AI decides which tool to call, executes it, and streams the result. Not a wrapper around completions — a genuine agent loop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TECHNOLOGY STACK ═══ -->
+  <section class="tech-stack">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Technology Stack</h2>
+        <p>Intentionally simple. No webpack, no Docker requirement, no twelve microservices.</p>
+      </div>
+
+      <div class="stack-grid stagger">
+        <div class="stack-card reveal">
+          <span class="stack-card__label">Frontend</span>
+          <h3>Vanilla JS SPA</h3>
+          <p class="text-2">Single HTML file, CSS custom properties for theming, Lucide icons. No bundler, no framework, no build step. Edit and refresh.</p>
+        </div>
+        <div class="stack-card reveal">
+          <span class="stack-card__label">Backend</span>
+          <h3>Python · FastAPI</h3>
+          <p class="text-2">Agent Framework + AG-UI protocol. uvicorn ASGI server. All Foundry SDK calls run in threads to avoid blocking the event loop.</p>
+        </div>
+        <div class="stack-card reveal">
+          <span class="stack-card__label">AI Runtime</span>
+          <h3>Foundry Local</h3>
+          <p class="text-2">Microsoft's on-device inference SDK. Manages model downloads, execution provider registration, and hardware acceleration. NPU, GPU, CPU.</p>
+        </div>
+        <div class="stack-card reveal">
+          <span class="stack-card__label">Telemetry</span>
+          <h3>OpenTelemetry</h3>
+          <p class="text-2">Single OTel pipeline for traces, metrics, and logs. UISpanExporter fans out to the nerd panel. Optional Jaeger integration for deep tracing.</p>
+        </div>
+        <div class="stack-card reveal">
+          <span class="stack-card__label">File Parsing</span>
+          <h3>MCP + MarkItDown</h3>
+          <p class="text-2">Model Context Protocol handles document conversion. Drop PDFs, emails, meeting notes — MarkItDown converts to text, the AI extracts tasks.</p>
+        </div>
+        <div class="stack-card reveal">
+          <span class="stack-card__label">Testing</span>
+          <h3>Playwright + pytest</h3>
+          <p class="text-2">17 Playwright E2E specs in Edge. Python integration tests against a real uvicorn server on port 3001. No mocking — real inference, real assertions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DATA FLOW ═══ -->
+  <section class="steps">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>What happens when you send a message</h2>
+        <p>From keystroke to completed task in milliseconds.</p>
+      </div>
+
+      <div class="steps__grid stagger" style="counter-reset: step;">
+        <div class="step reveal">
+          <h3>Input Routing</h3>
+          <p class="text-2"><code style="font-family: var(--f-mono); color: var(--c-primary); background: var(--c-surface); padding: 2px 6px; border-radius: 4px;">handleSend()</code> checks the content. Short text goes to <code style="font-family: var(--f-mono); color: var(--c-primary); background: var(--c-surface); padding: 2px 6px; border-radius: 4px;">/api/command</code> (AG-UI). Long text or file content goes to <code style="font-family: var(--f-mono); color: var(--c-primary); background: var(--c-surface); padding: 2px 6px; border-radius: 4px;">/api/extract</code> for chunked processing.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Agent Execution</h3>
+          <p class="text-2">The Agent Framework runs a multi-turn loop. The AI decides: does it need a tool? It might call <code style="font-family: var(--f-mono); color: var(--c-primary); background: var(--c-surface); padding: 2px 6px; border-radius: 4px;">add_task</code>, <code style="font-family: var(--f-mono); color: var(--c-primary); background: var(--c-surface); padding: 2px 6px; border-radius: 4px;">set_reminder</code>, or just respond. Tools mutate in-memory state.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Live Streaming</h3>
+          <p class="text-2">Results stream back as AG-UI events: <code style="font-family: var(--f-mono); color: var(--c-primary); background: var(--c-surface); padding: 2px 6px; border-radius: 4px;">STATE_SNAPSHOT</code> for the full todo list, <code style="font-family: var(--f-mono); color: var(--c-primary); background: var(--c-surface); padding: 2px 6px; border-radius: 4px;">STATE_DELTA</code> for patches, and <code style="font-family: var(--f-mono); color: var(--c-primary); background: var(--c-surface); padding: 2px 6px; border-radius: 4px;">TEXT_MESSAGE_CONTENT</code> for the AI's response.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="reveal">Ready to try it?</h2>
+      <p class="reveal">Three commands. Sixty seconds. Fully local AI task management.</p>
+      <div class="hero__actions reveal">
+        <a href="https://github.com/taskbean/taskbean#install" class="btn btn--primary btn--large">Get Started</a>
+        <a href="docs.html" class="btn btn--ghost btn--large">Read the Docs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <span class="footer__brand"><img src="assets/wordmark-footer.png" alt="taskbean" class="footer__logo-img" width="173" height="48"></span>
+        <span class="footer__copy">MIT License · Built by <a href="https://github.com/nicholasdbrady" style="color: var(--c-text-2); text-decoration: underline; text-underline-offset: 2px;">Nicholas Brady</a></span>
+      </div>
+      <div class="footer__links">
+        <a href="https://github.com/taskbean/taskbean" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+        <a href="docs.html" class="footer__link">Docs</a>
+        <a href="about.html" class="footer__link">About</a>
+        <a href="https://github.com/taskbean/taskbean/issues" class="footer__link" target="_blank" rel="noopener">Issues</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

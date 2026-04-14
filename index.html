@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>taskbean — The AI task manager that lives on your machine</title>
+  <meta name="description" content="Privacy-first AI task manager powered by on-device inference. No cloud, no subscription, no data leaves your machine. Free and open source.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="taskbean — Your tasks. Your machine. No compromise.">
+  <meta property="og:description" content="The AI task manager that runs entirely on your device. No cloud. No subscription. Free forever.">
+  <meta property="og:url" content="https://taskbean.ai">
+  <meta property="og:site_name" content="taskbean">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="taskbean — AI task manager, 100% local">
+  <meta name="twitter:description" content="No cloud. No subscription. No data leaves your machine.">
+
+  <link rel="canonical" href="https://taskbean.ai">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="vendor/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="taskbean home">
+        <img src="assets/wordmark-nav.png" alt="taskbean" class="nav__wordmark" width="115" height="32">
+      </a>
+
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav__links">
+        <a href="how-it-works.html" class="nav__link">How It Works</a>
+        <a href="docs.html" class="nav__link">Docs</a>
+        <a href="about.html" class="nav__link">About</a>
+      </div>
+
+      <div class="nav__actions">
+        <a href="https://github.com/taskbean/taskbean" class="nav__github" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>Star on GitHub</span>
+        </a>
+        <a href="https://github.com/taskbean/taskbean#install" class="btn btn--primary">Download</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero hero--short">
+    <div class="container hero__content">
+      <span class="badge">100% local · 100% free · 100% yours</span>
+      <h1 class="hero__title">
+        Your tasks.<br>Your machine.<br><em>No compromise.</em>
+      </h1>
+      <p class="hero__subtitle">
+        The AI task manager that runs entirely on your device. No cloud. No subscription. 
+        No data leaves your machine — unless you want it to.
+      </p>
+      <div class="hero__actions">
+        <a href="https://github.com/taskbean/taskbean#install" class="btn btn--primary btn--large">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Get Started
+        </a>
+        <a href="how-it-works.html" class="btn btn--ghost btn--large">See How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SHOWCASE — Scroll-Driven Animated Walkthrough ═══ -->
+  <section class="showcase" aria-label="Product walkthrough">
+    <div class="showcase__inner container">
+
+      <!-- Left: scrolling text panels -->
+      <div class="showcase__text">
+        <div class="showcase__panel" data-scene="1">
+          <div class="showcase__panel-content">
+            <span class="badge">AI Chat</span>
+            <h2>Talk to the bean.<br>It gets things done.</h2>
+            <p>Natural language task management with real tool-calling. Say <em>"plan my day"</em> and the AI structures your tasks, sets reminders, and prioritizes — all in one turn.</p>
+          </div>
+        </div>
+        <div class="showcase__panel" data-scene="2">
+          <div class="showcase__panel-content">
+            <span class="badge">File Extraction</span>
+            <h2>Drop a file.<br>Get tasks back.</h2>
+            <p>Paste meeting notes, drop a PDF, or forward an email. The AI extracts action items automatically — no manual entry, no copy-paste.</p>
+          </div>
+        </div>
+        <div class="showcase__panel" data-scene="3">
+          <div class="showcase__panel-content">
+            <span class="badge">NPU Acceleration</span>
+            <h2>Your hardware.<br>Maximum speed.</h2>
+            <p>Runs on NPU, GPU, or CPU — whatever your machine has. Hot-swap models on the fly. See real-time hardware stats in nerd mode.</p>
+          </div>
+        </div>
+        <div class="showcase__panel" data-scene="4">
+          <div class="showcase__panel-content">
+            <span class="badge">Copilot Usage</span>
+            <h2>Track your AI.<br>Know the cost.</h2>
+            <p>See tokens, sessions, requests and turns across all your Copilot coding sessions. Group tasks by project with automatic GitHub repo detection.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: sticky mockup -->
+      <div class="showcase__mockup">
+        <div class="app-mockup app-mockup--latte">
+          <!-- App header — matches real app: tabs left, logo center, actions right -->
+          <div class="mockup-appbar">
+            <div class="mockup-appbar__left">
+              <span class="mockup-appbar__tab mockup-appbar__tab--active" data-tab="tasks"><i data-lucide="check-square" class="icon-sm"></i> Tasks <span class="mockup-count">5</span></span>
+              <span class="mockup-appbar__tab" data-tab="recurring"><i data-lucide="timer" class="icon-sm"></i> Recurring <span class="mockup-count mockup-count--dim">0</span></span>
+              <span class="mockup-appbar__tab" data-tab="projects"><i data-lucide="folder-kanban" class="icon-sm"></i> Projects <span class="mockup-count">1</span></span>
+              <span class="mockup-appbar__tab"><i data-lucide="eye" class="icon-sm"></i></span>
+              <span class="mockup-appbar__tab"><i data-lucide="plus" class="icon-sm"></i></span>
+            </div>
+            <div class="mockup-appbar__center">
+              <img src="assets/bean-48.png" alt="" width="12" height="22">
+              <span class="mockup-appbar__brand">taskbean</span>
+            </div>
+            <div class="mockup-appbar__right">
+              <span class="mockup-appbar__icon"><i data-lucide="settings" class="icon-sm"></i></span>
+              <span class="mockup-appbar__install"><i data-lucide="download" class="icon-sm"></i> Install</span>
+            </div>
+          </div>
+
+          <!-- Scene container — scenes cross-fade -->
+          <div class="mockup-scenes">
+
+            <!-- ╌╌╌ SCENE 1: AI Chat ╌╌╌ -->
+            <div class="mockup-scene scene-active" data-scene="1">
+              <div class="mockup-body">
+                <div class="mockup-sidebar">
+                  <div class="mockup-task mockup-task--complete scene-el" data-delay="1400">
+                    <span class="mockup-check mockup-check--done">✓</span>
+                    <div><div class="mockup-task__title mockup-task__title--done">Review Q2 roadmap</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Today</span> · <span class="meta-src meta-src--cmd"><i data-lucide="message-square" class="icon-sm"></i> command</span></div></div>
+                  </div>
+                  <div class="mockup-task scene-el" data-delay="800">
+                    <span class="mockup-check"></span>
+                    <div><div class="mockup-task__title">Update API docs</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Tomorrow</span> · <span class="meta-src meta-src--agent"><i data-lucide="bot" class="icon-sm"></i> agent</span></div></div>
+                  </div>
+                  <div class="mockup-task scene-el" data-delay="900">
+                    <span class="mockup-check"></span>
+                    <div><div class="mockup-task__title">Fix auth middleware</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Friday</span> · <span class="meta-src meta-src--ext"><i data-lucide="brain" class="icon-sm"></i> extracted</span></div></div>
+                  </div>
+                  <div class="mockup-task scene-el" data-delay="1000">
+                    <span class="mockup-check"></span>
+                    <div><div class="mockup-task__title">Deploy staging build</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Fri 17:00</span> · <span class="meta-src meta-src--cmd"><i data-lucide="message-square" class="icon-sm"></i> command</span></div></div>
+                  </div>
+                  <div class="mockup-task scene-el" data-delay="1100">
+                    <span class="mockup-check"></span>
+                    <div><div class="mockup-task__title">Write release notes</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Next Mon</span> · <span class="meta-src meta-src--agent"><i data-lucide="bot" class="icon-sm"></i> agent</span></div></div>
+                  </div>
+                </div>
+                <div class="mockup-chat">
+                  <div class="mockup-chat__header">
+                    <span class="mockup-chat__new">+ New Chat</span>
+                    <span class="mockup-chat__status">● Ready</span>
+                  </div>
+                  <div class="mockup-chat__messages">
+                    <div class="mockup-msg mockup-msg--user scene-el" data-delay="200">
+                      Plan my day — I have a standup at 10 and a deploy at 5
+                    </div>
+                    <div class="mockup-msg mockup-msg--ai scene-el" data-delay="600">
+                      <span class="mockup-msg__icon"><i data-lucide="sparkles" class="icon-sm"></i></span>
+                      <div class="typewriter">
+                        Here's your plan for today:<br><br>
+                        <strong>Morning</strong><br>
+                        ☐ Review Q2 roadmap <span class="mockup-tag">before standup</span><br>
+                        ☐ Fix auth middleware <span class="mockup-tag">high priority</span><br><br>
+                        <strong>Afternoon</strong><br>
+                        ☐ Update API docs<br>
+                        ☐ Deploy staging build <span class="mockup-tag">5:00 PM</span><br><br>
+                        I've set a reminder for the deploy at 4:45 PM. ☕
+                      </div>
+                    </div>
+                    <div class="mockup-tool-call scene-el" data-delay="1200">
+                      <span><i data-lucide="wrench" class="icon-sm"></i></span> set_reminder("Deploy staging build", "4:45 PM") → <span class="tool-ok">✓ done</span>
+                    </div>
+                  </div>
+                  <div class="mockup-chat__input">
+                    <span class="mockup-chat__input-clip"><i data-lucide="paperclip" class="icon-sm"></i></span>
+                    <span>Type a command, paste text, or drop a file…</span>
+                    <div class="mockup-chat__input-actions"><span class="mockup-model-badge">phi-4-mini</span><span><i data-lucide="mic" class="icon-sm"></i></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="mockup-statusbar">
+                <span class="status-foundry">● Foundry</span>
+                <span><i data-lucide="cpu" class="icon-sm"></i> 12% · RAM 38.2/63.3 · VRAM 0.5GB · <i data-lucide="zap" class="icon-sm"></i> 0%</span>
+                <span>phi-4-mini-instruct-npu</span>
+                <span>Latte · Nerd</span>
+              </div>
+            </div>
+
+            <!-- ╌╌╌ SCENE 2: File Extraction ╌╌╌ -->
+            <div class="mockup-scene" data-scene="2">
+              <div class="mockup-body">
+                <div class="mockup-sidebar">
+                  <div class="mockup-task">
+                    <span class="mockup-check"></span>
+                    <div><div class="mockup-task__title">Fix auth middleware</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Friday</span> · <span class="meta-src meta-src--cmd"><i data-lucide="message-square" class="icon-sm"></i> command</span></div></div>
+                  </div>
+                  <div class="mockup-task">
+                    <span class="mockup-check"></span>
+                    <div><div class="mockup-task__title">Deploy staging build</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Friday</span> · <span class="meta-src meta-src--cmd"><i data-lucide="message-square" class="icon-sm"></i> command</span></div></div>
+                  </div>
+                  <div class="mockup-task mockup-task--new scene-el" data-delay="1200">
+                    <span class="mockup-check"></span>
+                    <div><div class="mockup-task__title">Draft launch blog post</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Next Tue</span> · <span class="meta-src meta-src--ext"><i data-lucide="brain" class="icon-sm"></i> extracted</span></div></div>
+                  </div>
+                  <div class="mockup-task mockup-task--new scene-el" data-delay="1400">
+                    <span class="mockup-check"></span>
+                    <div><div class="mockup-task__title">Update onboarding docs</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Next Wed</span> · <span class="meta-src meta-src--ext"><i data-lucide="brain" class="icon-sm"></i> extracted</span></div></div>
+                  </div>
+                  <div class="mockup-task mockup-task--new scene-el" data-delay="1600">
+                    <span class="mockup-check"></span>
+                    <div><div class="mockup-task__title">Schedule design review</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Next Thu</span> · <span class="meta-src meta-src--ext"><i data-lucide="brain" class="icon-sm"></i> extracted</span></div></div>
+                  </div>
+                  <div class="mockup-task mockup-task--new scene-el" data-delay="1800">
+                    <span class="mockup-check"></span>
+                    <div><div class="mockup-task__title">Send stakeholder update</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Next Fri</span> · <span class="meta-src meta-src--ext"><i data-lucide="brain" class="icon-sm"></i> extracted</span></div></div>
+                  </div>
+                </div>
+                <div class="mockup-chat">
+                  <div class="mockup-chat__header">
+                    <span class="mockup-chat__new">+ New Chat</span>
+                    <span class="mockup-chat__status">● Ready</span>
+                  </div>
+                  <div class="mockup-chat__messages">
+                    <div class="mockup-file-card scene-el" data-delay="200">
+                      <div class="mockup-file-card__icon"><i data-lucide="file-text"></i></div>
+                      <div class="mockup-file-card__info">
+                        <div class="mockup-file-card__name">Q2-planning-notes.pdf</div>
+                        <div class="mockup-file-card__size">2.3 MB</div>
+                      </div>
+                      <div class="mockup-file-card__status">Uploaded</div>
+                    </div>
+                    <div class="mockup-msg mockup-msg--user scene-el" data-delay="400">
+                      What are the action items in this document?
+                    </div>
+                    <div class="mockup-progress scene-el" data-delay="600">
+                      <div class="mockup-progress__label">Extracting tasks…</div>
+                      <div class="mockup-progress__bar"><div class="mockup-progress__fill"></div></div>
+                    </div>
+                    <div class="mockup-msg mockup-msg--ai scene-el" data-delay="1000">
+                      <span class="mockup-msg__icon"><i data-lucide="sparkles" class="icon-sm"></i></span>
+                      <div>
+                        I found <strong>4 action items</strong> in your planning notes:<br><br>
+                        ✅ Draft launch blog post <span class="mockup-tag">Tue</span><br>
+                        ✅ Update onboarding docs <span class="mockup-tag">Wed</span><br>
+                        ✅ Schedule design review <span class="mockup-tag">Thu</span><br>
+                        ✅ Send stakeholder update <span class="mockup-tag">Fri</span><br><br>
+                        All four have been added to your task list. ☕
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mockup-chat__input">
+                    <span class="mockup-chat__input-clip"><i data-lucide="paperclip" class="icon-sm"></i></span>
+                    <span>Type a command, paste text, or drop a file…</span>
+                    <div class="mockup-chat__input-actions"><span class="mockup-model-badge">phi-4-mini</span><span><i data-lucide="mic" class="icon-sm"></i></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="mockup-statusbar">
+                <span class="status-foundry">● Foundry</span>
+                <span><i data-lucide="cpu" class="icon-sm"></i> 18% · RAM 41.7/63.3 · VRAM 0.5GB · <i data-lucide="zap" class="icon-sm"></i> 0%</span>
+                <span>phi-4-mini-instruct-npu</span>
+                <span>Latte · Nerd</span>
+              </div>
+            </div>
+
+            <!-- ╌╌╌ SCENE 3: NPU Acceleration ╌╌╌ -->
+            <div class="mockup-scene" data-scene="3">
+              <div class="mockup-body mockup-body--npu">
+                <!-- Model picker overlay -->
+                <div class="mockup-picker scene-el" data-delay="200">
+                  <div class="mockup-picker__header">
+                    <span class="mockup-picker__title"><i data-lucide="cpu" class="icon-sm"></i> Select AI Model</span>
+                    <div class="mockup-picker__filters">
+                      <span class="mockup-filter-chip"><i data-lucide="wrench" class="icon-sm"></i> Tools</span>
+                      <span class="mockup-filter-chip"><i data-lucide="cpu" class="icon-sm"></i> Compatible</span>
+                    </div>
+                    <span class="mockup-picker__close"><i data-lucide="x" class="icon-sm"></i></span>
+                  </div>
+                  <div class="mockup-picker__model mockup-picker__model--active scene-el" data-delay="400">
+                    <div class="mockup-picker__badge mockup-picker__badge--npu">NPU</div>
+                    <div>
+                      <div class="mockup-picker__name">Phi-4 Mini Instruct</div>
+                      <div class="mockup-picker__detail">3.8B params · 2.4 GB · Quantized INT4</div>
+                    </div>
+                    <span class="mockup-picker__status mockup-picker__status--active">✓ Active</span>
+                  </div>
+                  <div class="mockup-picker__model scene-el" data-delay="550">
+                    <div class="mockup-picker__badge mockup-picker__badge--gpu">GPU</div>
+                    <div>
+                      <div class="mockup-picker__name">Phi-4 Mini Instruct</div>
+                      <div class="mockup-picker__detail">3.8B params · 2.6 GB · ONNX FP16</div>
+                    </div>
+                    <span class="mockup-picker__status">Available</span>
+                  </div>
+                  <div class="mockup-picker__model scene-el" data-delay="700">
+                    <div class="mockup-picker__badge mockup-picker__badge--cpu">CPU</div>
+                    <div>
+                      <div class="mockup-picker__name">Qwen 2.5 Coder</div>
+                      <div class="mockup-picker__detail">1.5B params · 1.6 GB · Quantized INT4</div>
+                    </div>
+                    <span class="mockup-picker__status">Available</span>
+                  </div>
+                  <div class="mockup-picker__model scene-el" data-delay="850">
+                    <div class="mockup-picker__badge mockup-picker__badge--gpu">GPU</div>
+                    <div>
+                      <div class="mockup-picker__name">Phi-4 Multimodal</div>
+                      <div class="mockup-picker__detail">5.6B params · 3.1 GB · ONNX FP16</div>
+                    </div>
+                    <span class="mockup-picker__dl"><i data-lucide="download" class="icon-sm"></i> Download</span>
+                  </div>
+                </div>
+
+                <!-- Hardware stats panel -->
+                <div class="mockup-hw">
+                  <div class="mockup-hw__title scene-el" data-delay="200"><i data-lucide="sparkles" class="icon-sm"></i> Hardware Stats</div>
+                  <div class="mockup-hw__stat scene-el" data-delay="400">
+                    <div class="mockup-hw__label">CPU</div>
+                    <div class="mockup-hw__bar"><div class="mockup-hw__fill" style="--fill-to: 14%"></div></div>
+                    <div class="mockup-hw__val">14%</div>
+                  </div>
+                  <div class="mockup-hw__stat scene-el" data-delay="550">
+                    <div class="mockup-hw__label">RAM</div>
+                    <div class="mockup-hw__bar"><div class="mockup-hw__fill" style="--fill-to: 60%"></div></div>
+                    <div class="mockup-hw__val">38/64 GB</div>
+                  </div>
+                  <div class="mockup-hw__stat scene-el" data-delay="700">
+                    <div class="mockup-hw__label">GPU</div>
+                    <div class="mockup-hw__bar"><div class="mockup-hw__fill" style="--fill-to: 3%"></div></div>
+                    <div class="mockup-hw__val">3%</div>
+                  </div>
+                  <div class="mockup-hw__stat mockup-hw__stat--npu scene-el" data-delay="850">
+                    <div class="mockup-hw__label">NPU</div>
+                    <div class="mockup-hw__bar mockup-hw__bar--npu"><div class="mockup-hw__fill mockup-hw__fill--npu" style="--fill-to: 87%"></div></div>
+                    <div class="mockup-hw__val mockup-hw__val--npu">87%</div>
+                  </div>
+                  <div class="mockup-hw__stat scene-el" data-delay="1000">
+                    <div class="mockup-hw__label">Model</div>
+                    <div class="mockup-hw__model-name">phi-4-mini-instruct</div>
+                  </div>
+                  <div class="mockup-hw__stat scene-el" data-delay="1100">
+                    <div class="mockup-hw__label">VRAM</div>
+                    <div class="mockup-hw__bar"><div class="mockup-hw__fill" style="--fill-to: 8%"></div></div>
+                    <div class="mockup-hw__val">0.5 GB</div>
+                  </div>
+                  <div class="mockup-hw__inference scene-el" data-delay="1200">
+                    <span>⚡ Inference: <strong class="inference-speed">24.3 tok/s</strong></span>
+                    <span>Latency: <strong class="inference-latency">41ms</strong></span>
+                  </div>
+                </div>
+              </div>
+              <div class="mockup-statusbar mockup-statusbar--glow">
+                <span class="status-foundry">● Foundry</span>
+                <span><i data-lucide="cpu" class="icon-sm"></i> 14% · RAM 38.2/63.3 · VRAM 0.5GB · <i data-lucide="zap" class="icon-sm"></i> 87%</span>
+                <span>phi-4-mini-instruct-npu</span>
+                <span>Latte · Nerd</span>
+              </div>
+            </div>
+
+            <!-- ╌╌╌ SCENE 4: Copilot Usage ╌╌╌ -->
+            <div class="mockup-scene" data-scene="4">
+              <div class="mockup-body">
+                <div class="mockup-sidebar mockup-sidebar--projects">
+                  <!-- Copilot usage section -->
+                  <div class="mockup-usage scene-el" data-delay="200">
+                    <div class="mockup-usage__header"><i data-lucide="activity" class="icon-sm"></i> copilot usage</div>
+                    <div class="mockup-usage__filters">
+                      <span class="mockup-chip mockup-chip--active">Today</span>
+                      <span class="mockup-chip">Week</span>
+                      <span class="mockup-chip">All</span>
+                    </div>
+                    <div class="mockup-usage__grid scene-el" data-delay="400">
+                      <div class="mockup-stat">
+                        <div class="mockup-stat__val">894.1K</div>
+                        <div class="mockup-stat__label">OUTPUT TOKENS</div>
+                      </div>
+                      <div class="mockup-stat">
+                        <div class="mockup-stat__val">10</div>
+                        <div class="mockup-stat__label">SESSIONS</div>
+                      </div>
+                      <div class="mockup-stat">
+                        <div class="mockup-stat__val">2,165</div>
+                        <div class="mockup-stat__label">REQUESTS</div>
+                      </div>
+                      <div class="mockup-stat">
+                        <div class="mockup-stat__val">77</div>
+                        <div class="mockup-stat__label">TURNS</div>
+                      </div>
+                    </div>
+                    <div class="mockup-usage__models scene-el" data-delay="600">
+                      <div class="mockup-model-row">
+                        <span class="mockup-model-row__name">claude-opus-4.6-1m</span>
+                        <span class="mockup-model-row__count">6 sessions</span>
+                      </div>
+                      <div class="mockup-model-row">
+                        <span class="mockup-model-row__name">unknown</span>
+                        <span class="mockup-model-row__count">3 sessions</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Project card -->
+                  <div class="mockup-project-card scene-el" data-delay="800">
+                    <div class="mockup-project-card__header">
+                      <i data-lucide="folder-kanban" class="icon-sm"></i>
+                      <span class="mockup-project-card__name">foundry-local</span>
+                      <span class="mockup-count">7 tasks</span>
+                    </div>
+                    <div class="mockup-project-card__status">
+                      <span class="mockup-project-card__done">● 3 done</span>
+                      <span class="mockup-project-card__pending">● 4 pending</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mockup-chat">
+                  <div class="mockup-chat__header">
+                    <span class="mockup-chat__new"><i data-lucide="plus" class="icon-sm"></i> New Chat</span>
+                    <span class="mockup-chat__status">● Ready</span>
+                  </div>
+                  <div class="mockup-chat__messages">
+                    <div class="mockup-msg mockup-msg--user scene-el" data-delay="300">
+                      How many tokens did I use today?
+                    </div>
+                    <div class="mockup-msg mockup-msg--ai scene-el" data-delay="700">
+                      <span class="mockup-msg__icon"><i data-lucide="sparkles" class="icon-sm"></i></span>
+                      <div>
+                        Today you've used <strong>894.1K output tokens</strong> across <strong>10 sessions</strong>.<br><br>
+                        Your most active model is <strong>claude-opus-4.6-1m</strong> with 6 sessions. The <em>foundry-local</em> project has 7 tasks — 3 done, 4 pending.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mockup-chat__input">
+                    <span class="mockup-chat__input-clip"><i data-lucide="paperclip" class="icon-sm"></i></span>
+                    <span>Type a command, paste text, or drop a file…</span>
+                    <div class="mockup-chat__input-actions"><span class="mockup-model-badge">phi-4-mini</span><span><i data-lucide="mic" class="icon-sm"></i></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="mockup-statusbar">
+                <span class="status-foundry">● Foundry</span>
+                <span><i data-lucide="cpu" class="icon-sm"></i> 18% · RAM 47.6/63.3 · VRAM 0.5GB · <i data-lucide="zap" class="icon-sm"></i> 0%</span>
+                <span>phi-4-mini-instruct-npu</span>
+                <span>Latte · Nerd</span>
+              </div>
+            </div>
+
+          </div><!-- /mockup-scenes -->
+        </div><!-- /app-mockup -->
+
+        <!-- Progress dots -->
+        <div class="showcase__dots" role="tablist" aria-label="Walkthrough scenes">
+          <button class="showcase__dot dot-active" data-scene="1" role="tab" aria-selected="true" aria-label="Scene 1: AI Chat"></button>
+          <button class="showcase__dot" data-scene="2" role="tab" aria-selected="false" aria-label="Scene 2: File Extraction"></button>
+          <button class="showcase__dot" data-scene="3" role="tab" aria-selected="false" aria-label="Scene 3: NPU Acceleration"></button>
+          <button class="showcase__dot" data-scene="4" role="tab" aria-selected="false" aria-label="Scene 4: Copilot Usage"></button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ TRUST BAR ═══ -->
+  <section class="trust">
+    <div class="container">
+      <p class="trust__label">Built with</p>
+      <div class="trust__logos">
+        <a href="https://github.com/microsoft/foundry-local" class="trust__item" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z"/></svg>
+          Microsoft Foundry Local
+        </a>
+        <a href="https://opentelemetry.io" class="trust__item" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/><path d="M12 2L2 7v10l10 5 10-5V7L12 2z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          OpenTelemetry
+        </a>
+        <a href="https://github.com/ag-ui-protocol/ag-ui" class="trust__item" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
+          AG-UI Protocol
+        </a>
+        <span class="trust__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          MIT Licensed
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURES ═══ -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="badge mb-lg">Features</span>
+        <h2>Everything you need,<br>nothing you don't</h2>
+        <p>AI-native task management built for developers who value privacy and performance.</p>
+      </div>
+
+      <div class="bento stagger">
+        <div class="bento__card bento__card--wide reveal">
+          <div class="bento__icon"><i data-lucide="message-square"></i></div>
+          <h3>Natural Language AI</h3>
+          <p>Talk to the bean. Say <em>"add a task to review PRs by Friday"</em> or <em>"plan my day"</em> and the AI handles the rest. Multi-turn conversations with full tool-calling — not just a chatbot skin on a text field.</p>
+        </div>
+
+        <div class="bento__card reveal">
+          <div class="bento__icon"><i data-lucide="lock"></i></div>
+          <h3>Private by Default</h3>
+          <p>Zero data leaves your device. No accounts. No telemetry phoning home. The AI runs on your hardware through Foundry Local.</p>
+        </div>
+
+        <div class="bento__card reveal">
+          <div class="bento__icon"><i data-lucide="zap"></i></div>
+          <h3>Hardware Accelerated</h3>
+          <p>Runs on your NPU, GPU, or CPU — whatever your machine has. Automatically selects the fastest execution provider available.</p>
+        </div>
+
+        <div class="bento__card bento__card--wide reveal">
+          <div class="bento__icon"><i data-lucide="brain"></i></div>
+          <h3>Multi-Model</h3>
+          <p>Switch between Phi-4, Qwen, and other models on the fly. The model picker shows compatibility, size, and performance — hot-swap without restarting.</p>
+        </div>
+
+        <div class="bento__card reveal">
+          <div class="bento__icon"><i data-lucide="bell"></i></div>
+          <h3>Smart Reminders</h3>
+          <p>Windows toast notifications, snooze, overdue alerts, and recurring schedules. <em>"Remind me to stretch every 45 minutes."</em></p>
+        </div>
+
+        <div class="bento__card reveal">
+          <div class="bento__icon"><i data-lucide="paperclip"></i></div>
+          <h3>File Extraction</h3>
+          <p>Drop meeting notes, emails, or PDFs — the AI extracts tasks automatically. Paste anything, and it pulls out the action items.</p>
+        </div>
+
+        <div class="bento__card reveal">
+          <div class="bento__icon"><i data-lucide="activity"></i></div>
+          <h3>Nerd Mode</h3>
+          <p>Live telemetry panel with CPU, RAM, GPU, NPU stats. OpenTelemetry traces, metrics sparklines, and Jaeger integration. See every token.</p>
+        </div>
+
+        <div class="bento__card reveal">
+          <div class="bento__icon"><i data-lucide="wifi-off"></i></div>
+          <h3>Works Offline</h3>
+          <p>Installable as a PWA with full offline support. No internet required, ever. Your tasks are always accessible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRIVACY ═══ -->
+  <section class="privacy" id="privacy">
+    <div class="container privacy__inner">
+      <div class="privacy__content reveal">
+        <span class="badge mb-lg">Local-First</span>
+        <h2>Your data never<br>leaves your machine</h2>
+        <p>Every productivity app wants your data on their servers. Every AI assistant needs an API key and a monthly bill. The bean disagrees.</p>
+        <div class="privacy__list">
+          <div class="privacy__item">
+            <span class="privacy__item-icon"><i data-lucide="home"></i></span>
+            <span><strong>On-device inference</strong> — AI runs directly on your hardware via Microsoft Foundry Local. No API calls, no cloud.</span>
+          </div>
+          <div class="privacy__item">
+            <span class="privacy__item-icon"><i data-lucide="shield-off"></i></span>
+            <span><strong>No accounts</strong> — No sign-up, no login, no email. Just launch and use.</span>
+          </div>
+          <div class="privacy__item">
+            <span class="privacy__item-icon"><i data-lucide="badge-dollar-sign"></i></span>
+            <span><strong>Free forever</strong> — No API keys, no subscriptions, no usage limits. MIT licensed.</span>
+          </div>
+          <div class="privacy__item">
+            <span class="privacy__item-icon"><i data-lucide="unlock"></i></span>
+            <span><strong>Open source</strong> — Inspect every line. Fork it. Modify it. It's yours.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="privacy__visual reveal">
+        <div class="privacy__diagram">┌─────────────────────────────────┐
+│  <span style="color:var(--c-primary)">Your Browser (PWA)</span>              │
+│  public/index.html              │
+└──────────────┬──────────────────┘
+               │ AG-UI SSE
+               ▼
+┌─────────────────────────────────┐
+│  <span style="color:var(--c-primary)">Python Backend</span>                  │
+│  FastAPI + Agent Framework      │
+└──────────────┬──────────────────┘
+               │ Foundry Local SDK
+               ▼
+┌─────────────────────────────────┐
+│  <span style="color:var(--c-accent)">On-Device AI</span>                    │
+│  NPU / GPU / CPU                │
+│  Phi-4, Qwen, etc.             │
+└─────────────────────────────────┘
+
+  <span style="color:var(--c-success)">✓ Everything runs on localhost</span>
+  <span style="color:var(--c-success)">✓ Zero network requests to AI</span>
+  <span style="color:var(--c-success)">✓ Data stays in-memory</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW IT WORKS (condensed) ═══ -->
+  <section class="steps" id="how-it-works">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="badge mb-lg">Quick Start</span>
+        <h2>Up and running in 60 seconds</h2>
+        <p>No configuration files. No environment variables. Just clone and launch.</p>
+      </div>
+
+      <div class="steps__grid stagger">
+        <div class="step reveal">
+          <h3>Install Foundry Local</h3>
+          <p class="text-2">One command installs the AI runtime. It handles model downloads, hardware detection, and execution provider setup.</p>
+          <div class="code-block" style="margin-top: var(--s-md)">
+            <div class="code-block__header">
+              <span class="code-block__tab"><span class="code-block__tab-icon">⌨</span>terminal</span><span class="code-block__winctrl"><span class="code-block__winbtn">—</span><span class="code-block__winbtn">□</span><span class="code-block__winbtn">✕</span></span>
+            </div>
+            <pre><span class="cmd">winget</span> install Microsoft.FoundryLocal</pre>
+          </div>
+        </div>
+
+        <div class="step reveal">
+          <h3>Launch taskbean</h3>
+          <p class="text-2">Clone the repo and run the launcher. It installs Python dependencies, starts the server, and opens your browser.</p>
+          <div class="code-block" style="margin-top: var(--s-md)">
+            <div class="code-block__header">
+              <span class="code-block__tab"><span class="code-block__tab-icon">⌨</span>terminal</span><span class="code-block__winctrl"><span class="code-block__winbtn">—</span><span class="code-block__winbtn">□</span><span class="code-block__winbtn">✕</span></span>
+            </div>
+            <pre><span class="cmd">git</span> clone https://github.com/taskbean/taskbean
+<span class="cmd">cd</span> taskbean && <span class="cmd">./launch.cmd</span></pre>
+          </div>
+        </div>
+
+        <div class="step reveal">
+          <h3>Talk to the bean</h3>
+          <p class="text-2">Start typing. The AI manages your tasks, sets reminders, extracts action items from documents, and plans your day.</p>
+          <div class="code-block" style="margin-top: var(--s-md)">
+            <div class="code-block__header">
+              <span class="code-block__tab"><span class="code-block__tab-icon">⌨</span>taskbean</span><span class="code-block__winctrl"><span class="code-block__winbtn">—</span><span class="code-block__winbtn">□</span><span class="code-block__winbtn">✕</span></span>
+            </div>
+            <pre><span class="str">"Add a task to review PRs by Friday"</span>
+<span class="str">"Remind me to stretch in 30 minutes"</span>
+<span class="str">"Plan my day"</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center reveal" style="margin-top: var(--s-2xl)">
+        <a href="how-it-works.html" class="btn btn--ghost">Learn more about the architecture →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="reveal">The grind is real.<br>Keep it local.</h2>
+      <p class="reveal">Open source, MIT licensed, and built for developers who want<br>their AI tools to respect their privacy.</p>
+      <div class="hero__actions reveal">
+        <a href="https://github.com/taskbean/taskbean" class="btn btn--primary btn--large">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+        <a href="docs.html" class="btn btn--ghost btn--large">Read the Docs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <span class="footer__brand"><img src="assets/wordmark-footer.png" alt="taskbean" class="footer__logo-img" width="173" height="48"></span>
+        <span class="footer__copy">MIT License · Built by <a href="https://github.com/nicholasdbrady" style="color: var(--c-text-2); text-decoration: underline; text-underline-offset: 2px;">Nicholas Brady</a></span>
+      </div>
+      <div class="footer__links">
+        <a href="https://github.com/taskbean/taskbean" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+        <a href="docs.html" class="footer__link">Docs</a>
+        <a href="about.html" class="footer__link">About</a>
+        <a href="https://github.com/taskbean/taskbean/issues" class="footer__link" target="_blank" rel="noopener">Issues</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
