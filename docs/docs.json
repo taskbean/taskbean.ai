@@ -27,8 +27,8 @@
     }
   },
   "logo": {
-    "light": "/assets/logo-full-cropped.png",
-    "dark": "/assets/logo-full-cropped.png",
+    "light": "/assets/wordmark-nav.png",
+    "dark": "/assets/wordmark-nav.png",
     "href": "https://taskbean.ai"
   },
   "favicon": "/assets/bean-32.png",
