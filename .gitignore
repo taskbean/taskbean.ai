@@ -2,3 +2,8 @@
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+.playwright-mcp/
+scene4-compare.jpg
+scene4-fixed.jpg
+showcase-*.jpg
