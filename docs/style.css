@@ -1,20 +1,33 @@
 /* ═══════════════════════════════════════════════════════════
-   taskbean docs — Dark Roast brand alignment
+   taskbean docs — Brand alignment (dark roast + latte)
    Matches the design system from taskbean.ai
    ═══════════════════════════════════════════════════════════ */
 
-/* ── Navbar: glassmorphism matching main site ──────────────── */
-#navbar {
+/* ── Dark mode (default) ───────────────────────────────────── */
+
+/* Navbar: glassmorphism matching main site */
+.dark #navbar,
+:root:not(.light) #navbar {
   background: rgba(17, 14, 12, 0.85) !important;
   backdrop-filter: blur(20px) saturate(1.5);
   -webkit-backdrop-filter: blur(20px) saturate(1.5);
   border-bottom: 1px solid rgba(74, 56, 40, 0.5) !important;
 }
 
-/* ── "Docs" link active highlight bar ──────────────────────── */
+/* Sidebar border */
+.dark #sidebar,
+:root:not(.light) #sidebar {
+  border-right-color: rgba(74, 56, 40, 0.5) !important;
+}
+
+/* "Docs" link active highlight bar */
 navbar-link[href="https://docs.taskbean.ai"] {
-  color: #E8DDD0 !important;
   position: relative;
+}
+
+.dark navbar-link[href="https://docs.taskbean.ai"],
+:root:not(.light) navbar-link[href="https://docs.taskbean.ai"] {
+  color: #E8DDD0 !important;
 }
 
 navbar-link[href="https://docs.taskbean.ai"]::after {
@@ -28,17 +41,31 @@ navbar-link[href="https://docs.taskbean.ai"]::after {
   border-radius: 1px;
 }
 
-/* ── Sidebar border ────────────────────────────────────────── */
-#sidebar {
-  border-right-color: rgba(74, 56, 40, 0.5) !important;
+/* ── Light mode (latte) ────────────────────────────────────── */
+
+.light #navbar {
+  background: rgba(245, 237, 228, 0.85) !important;
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid rgba(74, 56, 40, 0.2) !important;
 }
 
-/* ── Code blocks: JetBrains Mono ───────────────────────────── */
+.light #sidebar {
+  border-right-color: rgba(74, 56, 40, 0.15) !important;
+}
+
+.light navbar-link[href="https://docs.taskbean.ai"] {
+  color: #2E1E14 !important;
+}
+
+/* ── Shared styles ─────────────────────────────────────────── */
+
+/* Code blocks: JetBrains Mono */
 code, pre, .code-block {
   font-family: 'JetBrains Mono', 'Consolas', monospace !important;
 }
 
-/* ── Subtle grain overlay (matches main site) ──────────────── */
+/* Subtle grain overlay (matches main site) */
 body::after {
   content: '';
   position: fixed;
@@ -49,4 +76,9 @@ body::after {
   pointer-events: none;
   z-index: 9999;
   opacity: 0.4;
+}
+
+/* Reduce grain in light mode for readability */
+.light body::after {
+  opacity: 0.15;
 }

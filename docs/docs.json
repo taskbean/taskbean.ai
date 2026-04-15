@@ -8,12 +8,12 @@
     "dark": "#E8863C"
   },
   "appearance": {
-    "default": "dark",
-    "strict": true
+    "default": "dark"
   },
   "background": {
     "color": {
-      "dark": "#1A120E"
+      "dark": "#1A120E",
+      "light": "#F5EDE4"
     }
   },
   "fonts": {
@@ -27,13 +27,13 @@
     }
   },
   "logo": {
-    "light": "/assets/wordmark-nav.png",
+    "light": "/assets/wordmark-nav-light.png",
     "dark": "/assets/wordmark-nav.png",
     "href": "https://taskbean.ai"
   },
   "favicon": "/assets/bean-32.png",
   "styling": {
-    "codeblocks": "dark"
+    "codeblocks": "system"
   },
   "navigation": {
     "groups": [
