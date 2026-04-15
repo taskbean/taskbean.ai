@@ -1697,6 +1697,7 @@
 
   @media (max-width: 768px) {
     .steps__grid { grid-template-columns: 1fr; }
+    .step { padding: var(--s-md); }
     .step:not(:last-child)::after { display: none; }
   }
 
