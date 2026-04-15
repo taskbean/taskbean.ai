@@ -7,11 +7,34 @@
     "light": "#D4922E",
     "dark": "#E8863C"
   },
+  "appearance": {
+    "default": "dark",
+    "strict": true
+  },
+  "background": {
+    "color": {
+      "dark": "#1A120E"
+    }
+  },
+  "fonts": {
+    "heading": {
+      "family": "Fraunces",
+      "weight": 700
+    },
+    "body": {
+      "family": "Sora",
+      "weight": 400
+    }
+  },
   "logo": {
     "light": "/assets/logo-full-cropped.png",
-    "dark": "/assets/logo-full-cropped.png"
+    "dark": "/assets/logo-full-cropped.png",
+    "href": "https://taskbean.ai"
   },
   "favicon": "/assets/bean-32.png",
+  "styling": {
+    "codeblocks": "dark"
+  },
   "navigation": {
     "groups": [
       {
@@ -65,6 +88,14 @@
         "href": "https://taskbean.ai"
       },
       {
+        "label": "How It Works",
+        "href": "https://taskbean.ai/how-it-works.html"
+      },
+      {
+        "label": "About",
+        "href": "https://taskbean.ai/about.html"
+      },
+      {
         "label": "GitHub",
         "href": "https://github.com/taskbean/taskbean"
       }
@@ -73,7 +104,25 @@
   "footer": {
     "socials": {
       "github": "https://github.com/taskbean"
-    }
+    },
+    "links": [
+      {
+        "header": "Product",
+        "items": [
+          { "label": "Home", "href": "https://taskbean.ai" },
+          { "label": "How It Works", "href": "https://taskbean.ai/how-it-works.html" },
+          { "label": "Download", "href": "https://github.com/taskbean/taskbean#install" }
+        ]
+      },
+      {
+        "header": "Resources",
+        "items": [
+          { "label": "Documentation", "href": "https://docs.taskbean.ai" },
+          { "label": "GitHub", "href": "https://github.com/taskbean/taskbean" },
+          { "label": "About", "href": "https://taskbean.ai/about.html" }
+        ]
+      }
+    ]
   },
   "seo": {
     "metatags": {
