@@ -2211,3 +2211,80 @@
     border: 0;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE OS — Desktop-only app notice & CTA overrides
+   ═══════════════════════════════════════════════════════════════════ */
+
+  .mobile-notice {
+    background: var(--c-surface-2);
+    border-bottom: 1px solid var(--c-border);
+    padding: var(--s-md) 0;
+    text-align: center;
+  }
+
+  .mobile-notice p {
+    font-size: var(--fs-small);
+    color: var(--c-text-2);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .mobile-notice strong {
+    color: var(--c-primary);
+  }
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE-SPECIFIC REFINEMENTS
+   ═══════════════════════════════════════════════════════════════════ */
+
+  @media (max-width: 480px) {
+    /* Ensure no horizontal overflow on small screens */
+    html { overflow-x: hidden; }
+
+    /* Larger touch targets */
+    .btn { min-height: 44px; min-width: 44px; }
+
+    /* Nav actions — tighter on small phones */
+    .nav__actions .btn { padding: 8px 14px; font-size: 13px; }
+
+    /* Hero — tighter spacing */
+    .hero--short { padding-top: calc(70px + var(--s-xl)); }
+    .hero__actions { flex-direction: column; gap: var(--s-sm); }
+    .hero__actions .btn { width: 100%; justify-content: center; }
+
+    /* Code blocks — prevent overflow */
+    .code-block pre {
+      font-size: 11px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Steps section — compact for phones */
+    .step { padding: var(--s-sm) var(--s-md); }
+
+    /* Bento cards — more compact */
+    .bento__card { padding: var(--s-lg); }
+
+    /* CTA section */
+    .cta-section .hero__actions { flex-direction: column; }
+    .cta-section .btn { width: 100%; justify-content: center; }
+
+    /* Footer — stack columns */
+    .footer__inner { flex-direction: column; align-items: flex-start; }
+    .footer__links { flex-wrap: wrap; gap: var(--s-md); }
+  }
+
+  /* Showcase on mobile — stack and show static mockup */
+  @media (max-width: 900px) {
+    .showcase__panel:first-child {
+      align-items: flex-start;
+      padding-top: var(--s-md);
+    }
+    .showcase__panel:last-child {
+      margin-bottom: var(--s-xl);
+    }
+    .showcase__panel {
+      opacity: 1;
+    }
+  }

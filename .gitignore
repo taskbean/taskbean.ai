@@ -7,3 +7,8 @@ Desktop.ini
 scene4-compare.jpg
 scene4-fixed.jpg
 showcase-*.jpg
+
+.playwright-cli/
+*-mobile.png
+homepage-top.yaml
+nav-menu-open-mobile.png
