@@ -1,0 +1,26 @@
+---
+title: "Running Tests"
+description: "Run Python integration tests and Playwright E2E tests."
+---
+
+## Python integration tests
+
+```bash
+cd agent
+pytest test_integration.py -v                # all tests
+pytest test_integration.py -v -k test_health  # single test
+pytest test_telemetry.py -v                  # telemetry tests
+```
+
+## Playwright E2E tests
+
+```bash
+npx playwright test                           # all 17 specs
+npx playwright test tests/smoke.spec.js        # single spec
+npx playwright test -g "page loads"             # by title
+npx playwright test --project=smoke             # smoke only
+```
+
+<Note>
+Playwright tests require the server running on `:2326` and use Microsoft Edge.
+</Note>

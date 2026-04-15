@@ -1,0 +1,88 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "taskbean",
+  "colors": {
+    "primary": "#E8863C",
+    "light": "#D4922E",
+    "dark": "#E8863C"
+  },
+  "logo": {
+    "light": "/assets/wordmark-nav.png",
+    "dark": "/assets/wordmark-nav.png"
+  },
+  "favicon": "/assets/bean-32.png",
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "index",
+          "getting-started/installation",
+          "getting-started/quick-start",
+          "getting-started/prerequisites"
+        ]
+      },
+      {
+        "group": "Using taskbean",
+        "pages": [
+          "using-taskbean/ai-commands",
+          "using-taskbean/reminders",
+          "using-taskbean/file-extraction",
+          "using-taskbean/model-switching",
+          "using-taskbean/themes"
+        ]
+      },
+      {
+        "group": "Configuration",
+        "pages": [
+          "configuration/settings",
+          "configuration/pwa",
+          "configuration/nerd-mode"
+        ]
+      },
+      {
+        "group": "Development",
+        "pages": [
+          "development/running-tests",
+          "development/project-structure",
+          "development/contributing"
+        ]
+      },
+      {
+        "group": "Help",
+        "pages": [
+          "help/troubleshooting",
+          "help/known-issues"
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Home",
+        "href": "https://taskbean.ai"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/taskbean/taskbean"
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/taskbean"
+    }
+  },
+  "seo": {
+    "metatags": {
+      "canonical": "https://docs.taskbean.ai"
+    }
+  },
+  "analytics": {
+    "umami": {
+      "websiteId": "c82a8caa-5d07-47bd-8e62-52bf5947c08b"
+    }
+  }
+}

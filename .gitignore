@@ -9,6 +9,7 @@ scene4-fixed.jpg
 showcase-*.jpg
 
 .playwright-cli/
+.mintlify/
 *-mobile.png
 homepage-top.yaml
 nav-menu-open-mobile.png

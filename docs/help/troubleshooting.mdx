@@ -1,0 +1,34 @@
+---
+title: "Troubleshooting"
+description: "Solutions for common taskbean issues."
+---
+
+## "Server not running" overlay
+
+The PWA needs the local Python server running. Start it with `launch.cmd` or:
+
+```bash
+cd agent && python main.py
+```
+
+## Model loading fails
+
+```bash
+foundry model list                   # check installed
+foundry model download phi-4-mini     # download manually
+```
+
+## NPU not detected
+
+NPU requires compatible hardware (Intel Core Ultra, Snapdragon X). taskbean falls back to GPU → CPU gracefully. Check hardware in Nerd Mode.
+
+## Port 2326 in use
+
+```powershell
+Get-NetTCPConnection -LocalPort 2326 | Select-Object OwningProcess
+Stop-Process -Id <PID>
+```
+
+## Voice input not working
+
+Install a Windows speech language pack: **Settings → Time & Language → Language & region → English (United States) → Speech recognition**

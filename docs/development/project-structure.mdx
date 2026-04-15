@@ -1,0 +1,26 @@
+---
+title: "Project Structure"
+description: "Overview of the taskbean repository layout."
+---
+
+```
+taskbean/
+├── agent/                  # Python backend (primary)
+│   ├── main.py             # FastAPI entry point
+│   ├── agent.py            # Agent construction + model lifecycle
+│   ├── tools.py            # @tool functions (add_task, set_reminder…)
+│   ├── state.py            # In-memory todo + template store
+│   ├── app_config.py       # Persistent config (~/.taskbean/)
+│   ├── hardware.py         # NPU/GPU/CPU detection
+│   ├── telemetry.py        # OTel pipeline + UISpanExporter
+│   └── requirements.txt
+├── public/                 # Frontend
+│   ├── index.html          # Single-file SPA (~4600 lines)
+│   ├── sw.js               # Service worker
+│   └── manifest.json       # PWA manifest
+├── tests/                  # 17 Playwright E2E specs
+├── server.js               # Legacy Node.js backend
+├── docker-compose.yml      # Jaeger tracing
+├── launch.cmd              # One-click launcher
+└── playwright.config.js
+```

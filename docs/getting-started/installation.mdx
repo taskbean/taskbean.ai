@@ -1,0 +1,32 @@
+---
+title: "Installation"
+description: "Install taskbean on Windows 10/11 with one command or manual setup."
+---
+
+taskbean runs locally on Windows 10/11. Choose the method that works for you.
+
+## Option 1: One-click launch
+
+```bash
+git clone https://github.com/taskbean/taskbean.git
+cd taskbean
+./launch.cmd
+```
+
+`launch.cmd` handles everything: installs Foundry Local if needed, installs Python dependencies, registers the `taskbean://` protocol handler, starts the server, and opens your browser.
+
+## Option 2: Manual setup
+
+```bash
+# Install Foundry Local
+winget install Microsoft.FoundryLocal
+
+# Install Python dependencies
+cd agent
+pip install -r requirements.txt
+
+# Launch
+python main.py
+```
+
+Open [http://localhost:2326](http://localhost:2326) in your browser.
