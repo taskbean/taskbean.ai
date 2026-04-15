@@ -84,22 +84,27 @@
   "navbar": {
     "links": [
       {
-        "label": "Home",
-        "href": "https://taskbean.ai"
-      },
-      {
         "label": "How It Works",
         "href": "https://taskbean.ai/how-it-works.html"
+      },
+      {
+        "label": "Docs",
+        "href": "https://docs.taskbean.ai"
       },
       {
         "label": "About",
         "href": "https://taskbean.ai/about.html"
       },
       {
-        "label": "GitHub",
+        "type": "github",
         "href": "https://github.com/taskbean/taskbean"
       }
-    ]
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Download",
+      "href": "https://github.com/taskbean/taskbean#install"
+    }
   },
   "footer": {
     "socials": {
