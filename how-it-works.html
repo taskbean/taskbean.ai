@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A120E">
   <title>How It Works — taskbean</title>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="c82a8caa-5d07-47bd-8e62-52bf5947c08b"></script>
   <meta name="description" content="Learn how taskbean uses on-device AI through Microsoft Foundry Local to manage your tasks privately. Architecture, technology stack, and data flow.">
@@ -209,6 +210,38 @@
         <div class="step reveal">
           <h3>Live Streaming</h3>
           <p class="text-2">Results stream back as AG-UI events: <code style="font-family: var(--f-mono); color: var(--c-primary); background: var(--c-surface); padding: 2px 6px; border-radius: 4px;">STATE_SNAPSHOT</code> for the full todo list, <code style="font-family: var(--f-mono); color: var(--c-primary); background: var(--c-surface); padding: 2px 6px; border-radius: 4px;">STATE_DELTA</code> for patches, and <code style="font-family: var(--f-mono); color: var(--c-primary); background: var(--c-surface); padding: 2px 6px; border-radius: 4px;">TEXT_MESSAGE_CONTENT</code> for the AI's response.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CLI + AGENT SKILL ═══ -->
+  <section class="steps" id="cli-agent">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Your agent logs its own work.</h2>
+        <p>taskbean ships with a CLI and an Agent Skill manifest. Install the CLI once, link it to your coding agent, and every task it closes shows up in your own task list. No copy-paste, no Slack recaps.</p>
+      </div>
+
+      <div class="steps__grid stagger">
+        <div class="step reveal">
+          <h3>1. Install the CLI</h3>
+          <div class="code-block"><pre><code>npm install -g taskbean</code></pre></div>
+          <p class="text-2">One command. Works on macOS, Linux, and Windows (via WSL or native Node).</p>
+        </div>
+
+        <div class="step reveal">
+          <h3>2. Link your agent</h3>
+          <div class="code-block"><pre><code>bean install --agent copilot</code></pre></div>
+          <p class="text-2">Drops a <code>SKILL.md</code> into your agent's skills directory (e.g. <code>.agents/skills/taskbean/</code>, or <code>.claude/skills/</code> for Claude Code). Verified with <strong>GitHub Copilot CLI</strong>, <strong>Claude Code</strong>, <strong>OpenCode</strong>, and <strong>OpenAI Codex</strong>. Any Agent Skills-compatible agent auto-discovers taskbean.</p>
+        </div>
+
+        <div class="step reveal">
+          <h3>3. Work normally</h3>
+          <div class="code-block"><pre><code>bean add "Ship the new landing page"
+bean done 42 --note "Merged in #318"
+bean report --today</code></pre></div>
+          <p class="text-2">Your agent calls these on its own as it completes work. The task list fills in without hand-tracking. Run <code>bean report</code> at EOD — it writes itself.</p>
         </div>
       </div>
     </div>

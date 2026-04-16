@@ -92,11 +92,12 @@
 /* ── Reset ────────────────────────────────────────────────────────── */
 @layer reset {
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { 
-    scroll-behavior: smooth; 
+  html {
+    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     hanging-punctuation: first last;
+    color-scheme: dark;
   }
   body {
     min-height: 100dvh;
@@ -398,7 +399,7 @@
   .btn--ghost {
     background: transparent;
     color: var(--c-text);
-    border: 1px solid var(--c-border-bold);
+    border: 1px solid rgba(245, 230, 211, 0.4);
   }
 
   .btn--ghost:hover {
@@ -867,6 +868,14 @@
     border-bottom: 1px solid var(--c-border);
   }
 
+  .trust__shield {
+    display: block;
+    text-align: center;
+    margin-bottom: var(--s-lg);
+    line-height: 0;
+  }
+  .trust__shield img { display: inline-block; }
+
   .trust__label {
     text-align: center;
     font-size: var(--fs-xs);
@@ -874,29 +883,97 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--c-text-3);
-    margin-bottom: var(--s-lg);
+    margin-bottom: var(--s-md);
   }
 
-  .trust__logos {
+  .trust__pills {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--s-2xl);
     flex-wrap: wrap;
-  }
-
-  .trust__item {
-    display: flex;
-    align-items: center;
+    justify-content: center;
     gap: var(--s-sm);
-    color: var(--c-text-3);
-    font-size: var(--fs-small);
-    font-weight: 500;
-    transition: color var(--dur-fast) var(--ease-out);
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--s-lg);
   }
 
-  .trust__item:hover { color: var(--c-text-2); }
-  .trust__item svg { width: 24px; height: 24px; opacity: 0.6; }
+  .trust__pill {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid var(--c-border);
+    border-radius: 999px;
+    color: var(--c-text-2);
+    font-family: var(--f-mono);
+    font-size: var(--fs-small);
+    text-decoration: none;
+    transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  }
+  .trust__pill:hover,
+  .trust__pill:focus-visible {
+    border-color: var(--c-primary);
+    color: var(--c-text);
+  }
+
+  .trust__legend {
+    color: var(--c-text-3);
+    font-size: var(--fs-xs);
+    text-align: center;
+    margin: 0;
+  }
+
+  /* ─── Quick Start (CLI install) ─── */
+  .quickstart { padding-block: var(--s-3xl); }
+  .quickstart__grid {
+    display: grid;
+    gap: var(--s-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin-top: var(--s-xl);
+  }
+  .quickstart__step h3 {
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-sm);
+    margin: 0 0 var(--s-md);
+    font-size: var(--fs-lg);
+  }
+  .quickstart__num {
+    color: var(--c-primary);
+    font-family: var(--f-mono);
+    font-size: var(--fs-sm);
+    letter-spacing: 0.1em;
+  }
+  .quickstart__step .code-block + p { margin-top: var(--s-md); }
+  .quickstart__alt { margin-top: var(--s-sm); }
+  .quickstart__alt summary {
+    cursor: pointer;
+    color: var(--c-text-3);
+    font-size: var(--fs-sm);
+    font-family: var(--f-mono);
+    list-style: none;
+  }
+  .quickstart__alt summary::-webkit-details-marker { display: none; }
+  .quickstart__alt summary::before { content: "+ "; color: var(--c-primary); }
+  .quickstart__alt[open] summary::before { content: "− "; }
+  .quickstart__alt summary:hover { color: var(--c-text); }
+  .quickstart__alt[open] summary { margin-bottom: var(--s-sm); }
+  .quickstart__alt .code-block + .code-block { margin-top: var(--s-sm); }
+
+  /* ─── Agent bento tags ─── */
+  .bento__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-xs);
+    list-style: none;
+    padding: 0;
+    margin: var(--s-md) 0 0;
+  }
+  .bento__tags li {
+    font-family: var(--f-mono);
+    font-size: var(--fs-xs);
+    color: var(--c-text-3);
+    padding: 2px 8px;
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-sm);
+  }
 
 /* ═══════════════════════════════════════════════════════════════════
    FEATURE BENTO GRID
@@ -1023,7 +1100,7 @@
 
   .privacy__inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--s-3xl);
     align-items: center;
   }
@@ -1092,7 +1169,7 @@
 
   @media (max-width: 768px) {
     .privacy__inner {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: var(--s-xl);
     }
   }
@@ -1105,7 +1182,7 @@
 
   .steps__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--s-xl);
     counter-reset: step;
   }
@@ -1145,7 +1222,7 @@
   }
 
   @media (max-width: 768px) {
-    .steps__grid { grid-template-columns: 1fr; }
+    .steps__grid { grid-template-columns: minmax(0, 1fr); }
     .step { padding: var(--s-md); }
     .step:not(:last-child)::after { display: none; }
   }

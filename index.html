@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A120E">
   <title>taskbean — The AI task manager that lives on your machine</title>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="c82a8caa-5d07-47bd-8e62-52bf5947c08b"></script>
   <meta name="description" content="Privacy-first AI task manager powered by on-device inference. No cloud, no subscription, no data leaves your machine. Free and open source.">
@@ -113,6 +114,55 @@
     </div>
   </section>
 
+  <!-- ═══ QUICK START (CLI install) ═══ -->
+  <section class="quickstart" id="quick-start" aria-labelledby="quickstart-heading">
+    <div class="container">
+      <header class="section-header reveal">
+        <span class="badge mb-lg">Quick Start</span>
+        <h2 id="quickstart-heading">Install once. Link your agent. Done.</h2>
+        <p>Taskbean is a CLI plus a local app. Your agent logs its own work via the Agent Skill manifest — you just live your life.</p>
+      </header>
+
+      <div class="quickstart__grid stagger">
+        <div class="quickstart__step reveal">
+          <h3><span class="quickstart__num">01</span> Install the CLI</h3>
+          <div class="code-block">
+            <pre><span class="cmd">npm</span> install -g taskbean</pre>
+          </div>
+          <details class="quickstart__alt">
+            <summary>Other installers</summary>
+            <div class="code-block">
+              <pre><span class="comment"># macOS / Linux</span>
+<span class="cmd">curl</span> -fsSL https://taskbean.ai/install | bash</pre>
+            </div>
+            <div class="code-block">
+              <pre><span class="comment"># Windows PowerShell</span>
+<span class="cmd">iwr</span> -useb https://taskbean.ai/install.ps1 | iex</pre>
+            </div>
+          </details>
+        </div>
+
+        <div class="quickstart__step reveal">
+          <h3><span class="quickstart__num">02</span> Link your agent</h3>
+          <div class="code-block">
+            <pre><span class="cmd">bean</span> install <span class="flag">--agent</span> copilot</pre>
+          </div>
+          <p class="text-2">Drops a <code>SKILL.md</code> into your agent's skills directory. Works with Copilot CLI, Claude Code, OpenCode, and Codex.</p>
+        </div>
+
+        <div class="quickstart__step reveal">
+          <h3><span class="quickstart__num">03</span> Let it log itself</h3>
+          <div class="code-block">
+            <pre><span class="cmd">bean</span> add <span class="str">"Ship landing page"</span>
+<span class="cmd">bean</span> done 42 <span class="flag">--note</span> <span class="str">"Merged #318"</span>
+<span class="cmd">bean</span> report <span class="flag">--today</span></pre>
+          </div>
+          <p class="text-2">Your agent uses these as it works. At EOD, <code>bean report</code> writes itself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ SHOWCASE — Real product screenshots, scroll-driven ═══ -->
   <section class="showcase" id="showcase" aria-label="Product walkthrough">
     <div class="showcase__layout container container--wide">
@@ -190,28 +240,22 @@
     </div>
   </section>
 
-  <!-- ═══ TRUST BAR ═══ -->
-  <section class="trust">
+  <!-- ═══ TRUST BAR (agent compatibility) ═══ -->
+  <section class="trust" aria-label="Works with these agents">
     <div class="container">
-      <p class="trust__label">Built with</p>
-      <div class="trust__logos">
-        <a href="https://github.com/microsoft/foundry-local" class="trust__item" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z"/></svg>
-          Microsoft Foundry Local
-        </a>
-        <a href="https://opentelemetry.io" class="trust__item" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/><path d="M12 2L2 7v10l10 5 10-5V7L12 2z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-          OpenTelemetry
-        </a>
-        <a href="https://github.com/ag-ui-protocol/ag-ui" class="trust__item" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
-          AG-UI Protocol
-        </a>
-        <span class="trust__item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          MIT Licensed
-        </span>
-      </div>
+      <a class="trust__shield" href="https://github.com/taskbean/taskbean" target="_blank" rel="noopener">
+        <img src="https://img.shields.io/github/stars/taskbean/taskbean?style=flat&logo=github&logoColor=%23EADBC8&label=star&labelColor=%231A120E&color=%23E8863C"
+             alt="Star taskbean/taskbean on GitHub"
+             loading="lazy" width="120" height="20" decoding="async" />
+      </a>
+      <p class="trust__label">Works with your coding agent</p>
+      <ul class="trust__pills">
+        <li><a class="trust__pill" href="https://github.com/github/copilot-cli" target="_blank" rel="noopener">GitHub Copilot CLI</a></li>
+        <li><a class="trust__pill" href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code</a></li>
+        <li><a class="trust__pill" href="https://github.com/sst/opencode" target="_blank" rel="noopener">OpenCode</a></li>
+        <li><a class="trust__pill" href="https://github.com/openai/codex" target="_blank" rel="noopener">OpenAI Codex</a></li>
+      </ul>
+      <p class="trust__legend">Built with Foundry Local · OpenTelemetry · AG-UI · MIT-licensed</p>
     </div>
   </section>
 
@@ -225,6 +269,18 @@
       </div>
 
       <div class="bento stagger">
+        <div class="bento__card bento__card--wide bento__card--agent reveal">
+          <div class="bento__icon"><i data-lucide="terminal-square"></i></div>
+          <h3>Agent-native.</h3>
+          <p><code>bean install</code> links taskbean to your coding agent. Copilot CLI, Claude Code, OpenCode, Codex — all auto-discover the Skill manifest and log work for you.</p>
+          <ul class="bento__tags" aria-label="Compatible agents">
+            <li>Copilot CLI</li>
+            <li>Claude Code</li>
+            <li>OpenCode</li>
+            <li>Codex</li>
+          </ul>
+        </div>
+
         <div class="bento__card bento__card--wide reveal">
           <div class="bento__icon"><i data-lucide="message-square"></i></div>
           <h3>Natural Language AI</h3>
@@ -330,7 +386,7 @@
   </section>
 
   <!-- ═══ HOW IT WORKS (condensed) ═══ -->
-  <section class="steps" id="how-it-works">
+  <section class="steps">
     <div class="container">
       <div class="section-header reveal">
         <span class="badge mb-lg">Quick Start</span>
