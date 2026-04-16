@@ -83,43 +83,80 @@
         <p>Three layers, one machine. Everything runs on localhost.</p>
       </div>
 
-      <div class="arch-diagram reveal">┌──────────────────────────────────────────────────────────────────────────────┐
-│                         <span style="color:var(--c-primary)">Browser (PWA)</span>                                     │
-│                                                                              │
-│  public/index.html — single-file vanilla JS SPA, no build step              │
-│  Themes · Model Picker · Telemetry Panel · AG-UI Chat · Service Worker      │
-└─────────────────────────────────┬────────────────────────────────────────────┘
-                                  │
-                          AG-UI SSE (Server-Sent Events)
-                                  │
-                                  ▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                      <span style="color:var(--c-primary)">Python Backend (FastAPI)</span>                              │
-│                                                                              │
-│  main.py ─── agent.py ─── tools.py ─── state.py                             │
-│     │                                                                        │
-│     ├── /api/command    →  AG-UI multi-turn tool-calling agent               │
-│     ├── /api/extract    →  File parsing via MCP + MarkItDown                 │
-│     ├── /api/models/*   →  Model catalog, switch, download                   │
-│     ├── /api/health     →  System metrics + model readiness                  │
-│     └── /api/telemetry  →  OTel span stream for nerd panel                   │
-└─────────────────────────────────┬────────────────────────────────────────────┘
-                                  │
-                        Foundry Local SDK (FFI)
-                                  │
-                                  ▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                       <span style="color:var(--c-accent)">On-Device AI Runtime</span>                                │
-│                                                                              │
-│  Microsoft Foundry Local — manages model lifecycle                           │
-│                                                                              │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐                          │
-│  │  <span style="color:var(--c-success)">NPU</span>        │  │  <span style="color:var(--c-success)">GPU</span>        │  │  <span style="color:var(--c-success)">CPU</span>        │                          │
-│  │  VitisAI EP  │  │  MIGraphX EP │  │  Default EP  │                          │
-│  └─────────────┘  └─────────────┘  └─────────────┘                          │
-│                                                                              │
-│  Models: Phi-4 Mini · Qwen 2.5 · Phi-4 Multimodal · more                    │
-└──────────────────────────────────────────────────────────────────────────────┘</div>
+      <div class="arch-diagram reveal" aria-label="System architecture: browser PWA to Python backend to on-device AI runtime">
+        <div class="arch-layer arch-layer--client">
+          <div class="arch-layer__head">
+            <span class="arch-layer__chip" data-tone="client">Layer 1</span>
+            <h3 class="arch-layer__title">Browser <span class="arch-layer__tag">(PWA)</span></h3>
+            <span class="arch-layer__host">localhost:3000</span>
+          </div>
+          <div class="arch-layer__body">
+            <p class="arch-layer__lede"><code>public/index.html</code> — single-file vanilla JS SPA, no build step</p>
+            <ul class="arch-pills" role="list">
+              <li>Themes</li>
+              <li>Model Picker</li>
+              <li>Telemetry Panel</li>
+              <li>AG-UI Chat</li>
+              <li>Service Worker</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="arch-link" aria-hidden="true">
+          <span class="arch-link__label">AG-UI&nbsp;·&nbsp;Server-Sent Events</span>
+          <span class="arch-link__line"></span>
+          <span class="arch-link__arrow"></span>
+        </div>
+
+        <div class="arch-layer arch-layer--server">
+          <div class="arch-layer__head">
+            <span class="arch-layer__chip" data-tone="server">Layer 2</span>
+            <h3 class="arch-layer__title">Python Backend <span class="arch-layer__tag">(FastAPI)</span></h3>
+            <span class="arch-layer__host">localhost:8000</span>
+          </div>
+          <div class="arch-layer__body">
+            <p class="arch-layer__lede"><code>main.py</code> → <code>agent.py</code> → <code>tools.py</code> → <code>state.py</code></p>
+            <ul class="arch-routes" role="list">
+              <li><code>POST /api/command</code><span>AG-UI multi-turn tool-calling agent</span></li>
+              <li><code>POST /api/extract</code><span>File parsing via MCP + MarkItDown</span></li>
+              <li><code>&nbsp;&nbsp;GET /api/models/*</code><span>Catalog, switch, download</span></li>
+              <li><code>&nbsp;&nbsp;GET /api/health</code><span>System metrics + model readiness</span></li>
+              <li><code>&nbsp;&nbsp;GET /api/telemetry</code><span>OTel span stream for nerd panel</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="arch-link" aria-hidden="true">
+          <span class="arch-link__label">Foundry Local SDK&nbsp;·&nbsp;FFI</span>
+          <span class="arch-link__line"></span>
+          <span class="arch-link__arrow"></span>
+        </div>
+
+        <div class="arch-layer arch-layer--runtime">
+          <div class="arch-layer__head">
+            <span class="arch-layer__chip" data-tone="runtime">Layer 3</span>
+            <h3 class="arch-layer__title">On-Device AI Runtime</h3>
+            <span class="arch-layer__host">Microsoft Foundry Local</span>
+          </div>
+          <div class="arch-layer__body">
+            <div class="arch-runtime">
+              <div class="arch-chip-card" data-accel="npu">
+                <span class="arch-chip-card__kind">NPU</span>
+                <span class="arch-chip-card__ep">VitisAI EP</span>
+              </div>
+              <div class="arch-chip-card" data-accel="gpu">
+                <span class="arch-chip-card__kind">GPU</span>
+                <span class="arch-chip-card__ep">MIGraphX EP</span>
+              </div>
+              <div class="arch-chip-card" data-accel="cpu">
+                <span class="arch-chip-card__kind">CPU</span>
+                <span class="arch-chip-card__ep">Default EP</span>
+              </div>
+            </div>
+            <p class="arch-layer__foot"><span class="arch-layer__foot-label">Models</span> Phi-4 Mini &middot; Qwen 2.5 &middot; Phi-4 Multimodal &middot; more</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
