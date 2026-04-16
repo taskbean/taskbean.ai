@@ -694,9 +694,9 @@
     padding-bottom: var(--s-2xl);
   }
 
-  .showcase__inner {
+  .showcase__layout {
     display: grid;
-    grid-template-columns: 1fr minmax(0, 720px);
+    grid-template-columns: minmax(0, 540px) minmax(760px, 1fr);
     gap: var(--s-2xl);
     align-items: start;
     max-width: var(--max-w-wide);
@@ -705,7 +705,7 @@
   }
 
   /* Left side: scrolling text panels */
-  .showcase__text {
+  .showcase__panels {
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -751,44 +751,50 @@
     line-height: 1.8;
   }
 
-  /* Right side: sticky mockup */
-  .showcase__mockup {
+  /* Right side: sticky screenshot */
+  /* Right side: sticky screenshot frame */
+  .showcase__sticky {
     position: sticky;
     top: calc(80px + var(--s-xl));
     align-self: start;
   }
 
-  /* Scene cross-fade container */
-  .mockup-scenes {
+  .showcase__frame {
     position: relative;
+    aspect-ratio: 1490 / 790;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--c-border);
+    overflow: hidden;
+    background: var(--c-surface-2);
+    box-shadow: var(--shadow-lg);
   }
 
-  .mockup-scene {
-    display: none;
-  }
-
-  .mockup-scene.scene-active {
-    display: block;
-    animation: sceneFadeIn 0.5s var(--ease-out) both;
-  }
-
-  @keyframes sceneFadeIn {
-    from { opacity: 0; transform: scale(0.98); }
-    to   { opacity: 1; transform: scale(1); }
-  }
-
-  /* Scene element staggered reveals */
-  .scene-el {
+  .scene-img {
+    position: absolute;
+    inset: 0;
     opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+    transition: opacity var(--dur-med) var(--ease-out);
+    display: block;
   }
 
-  .scene-active .scene-el {
-    opacity: 1;
-    transform: translateY(0);
+  .scene-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+    display: block;
   }
 
+  .scene-img.scene-active { opacity: 1; }
+
+  @media (max-width: 700px) {
+    .showcase__frame { aspect-ratio: 390 / 800; max-width: 360px; margin: 0 auto; }
+    .scene-img img { object-position: center top; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scene-img { transition-duration: 0.01ms; }
+  }
   /* Progress dots */
   .showcase__dots {
     display: flex;
@@ -823,406 +829,6 @@
     transform: scale(1.3);
   }
 
-  /* ── Scene-specific mockup styles ────────────────────────────── */
-
-  /* File card (Scene 2) */
-  .mockup-file-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--m-surface2);
-    border: 1px solid var(--m-border);
-    border-radius: var(--r-md);
-    padding: 12px 16px;
-  }
-
-  .mockup-file-card__icon {
-    font-size: 24px;
-    flex-shrink: 0;
-  }
-
-  .mockup-file-card__info { flex: 1; }
-
-  .mockup-file-card__name {
-    color: var(--m-text);
-    font-weight: 600;
-    font-size: 12px;
-  }
-
-  .mockup-file-card__size {
-    color: var(--m-text3);
-    font-size: 10px;
-  }
-
-  .mockup-file-card__status {
-    color: var(--m-green);
-    font-size: 10px;
-    font-weight: 600;
-  }
-
-  /* Progress bar (Scene 2) */
-  .mockup-progress {
-    padding: 8px 16px;
-  }
-
-  .mockup-progress__label {
-    font-size: 10px;
-    color: var(--m-text3);
-    margin-bottom: 6px;
-  }
-
-  .mockup-progress__bar {
-    height: 4px;
-    background: var(--m-surface2);
-    border-radius: var(--r-full);
-    overflow: hidden;
-  }
-
-  .mockup-progress__fill {
-    height: 100%;
-    width: 0;
-    background: linear-gradient(90deg, var(--m-accent), var(--m-orange));
-    border-radius: var(--r-full);
-    transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .scene-active .mockup-progress__fill {
-    width: 100%;
-    transition-delay: 0.8s;
-  }
-
-  /* New task highlight (Scene 2) */
-  .mockup-task--new {
-    background: rgba(200, 82, 10, 0.04);
-    border-left: 2px solid var(--m-accent);
-  }
-
-  /* Model picker (Scene 3) */
-  .mockup-body--npu {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .mockup-picker {
-    background: var(--m-surface);
-    border: 1px solid var(--m-border);
-    border-radius: var(--r-md);
-    overflow: hidden;
-    margin: 16px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  }
-
-  .mockup-picker__header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--m-border);
-    font-size: 13px;
-  }
-
-  .mockup-picker__title {
-    font-weight: 600;
-    color: var(--m-text);
-    margin-right: auto;
-  }
-
-  .mockup-picker__filters {
-    display: flex;
-    gap: 6px;
-  }
-
-  .mockup-filter-chip {
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: var(--r-full);
-    background: var(--m-surface2);
-    color: var(--m-text2);
-    border: 1px solid var(--m-border);
-  }
-
-  .mockup-picker__close {
-    color: var(--m-text3);
-    font-size: 14px;
-    cursor: pointer;
-  }
-
-  .mockup-picker__model {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 16px;
-    border-bottom: 1px solid rgba(0,0,0,0.04);
-    transition: background 150ms ease;
-  }
-
-  .mockup-picker__model--active {
-    background: rgba(200, 82, 10, 0.05);
-    border-left: 3px solid var(--m-green);
-  }
-
-  .mockup-picker__name {
-    color: var(--m-text);
-    font-weight: 600;
-    font-size: 12px;
-  }
-
-  .mockup-picker__detail {
-    font-size: 10px;
-    color: var(--m-text3);
-  }
-
-  .mockup-picker__status {
-    font-size: 10px;
-    color: var(--m-text3);
-    margin-left: auto;
-    white-space: nowrap;
-  }
-
-  .mockup-picker__status--active {
-    color: var(--m-green);
-    font-weight: 600;
-  }
-
-  .mockup-picker__dl {
-    font-size: 10px;
-    color: var(--m-accent);
-    font-weight: 600;
-    margin-left: auto;
-    white-space: nowrap;
-  }
-
-  .mockup-picker__badge {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    padding: 3px 8px;
-    border-radius: 4px;
-    flex-shrink: 0;
-  }
-
-  .mockup-picker__badge--npu {
-    background: rgba(139, 92, 160, 0.12);
-    color: var(--m-purple);
-  }
-
-  .mockup-picker__badge--gpu {
-    background: rgba(45, 142, 45, 0.12);
-    color: var(--m-green);
-  }
-
-  .mockup-picker__badge--cpu {
-    background: rgba(200, 82, 10, 0.12);
-    color: var(--m-accent);
-  }
-
-  /* Hardware stats panel (Scene 3) */
-  .mockup-hw {
-    padding: 12px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .mockup-hw__title {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--m-text2);
-    margin-bottom: 4px;
-  }
-
-  .mockup-hw__stat {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 10px;
-  }
-
-  .mockup-hw__label {
-    width: 36px;
-    color: var(--m-text3);
-    font-family: var(--f-mono);
-    flex-shrink: 0;
-    font-size: 10px;
-  }
-
-  .mockup-hw__bar {
-    flex: 1;
-    height: 5px;
-    background: var(--m-surface2);
-    border-radius: var(--r-full);
-    overflow: hidden;
-  }
-
-  .mockup-hw__bar--npu { background: rgba(139, 92, 160, 0.12); }
-
-  .mockup-hw__fill {
-    height: 100%;
-    width: 0;
-    background: var(--m-accent);
-    border-radius: var(--r-full);
-    transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .mockup-hw__fill--npu { background: var(--m-purple); }
-
-  .scene-active .mockup-hw__fill {
-    width: var(--fill-to, 0%);
-  }
-
-  .mockup-hw__val {
-    width: 50px;
-    text-align: right;
-    color: var(--m-text2);
-    font-family: var(--f-mono);
-    font-size: 10px;
-  }
-
-  .mockup-hw__val--npu { color: var(--m-purple); }
-  .mockup-hw__stat--npu .mockup-hw__label { color: var(--m-purple); }
-
-  .mockup-hw__model-name {
-    color: var(--m-text);
-    font-size: 11px;
-    font-weight: 500;
-  }
-
-  .mockup-hw__inference {
-    display: flex;
-    gap: 16px;
-    font-size: 11px;
-    color: var(--m-text3);
-    padding-top: 6px;
-    border-top: 1px solid var(--m-border);
-    margin-top: 4px;
-  }
-
-  .inference-speed { color: var(--m-accent); }
-  .inference-latency { color: var(--m-text); }
-
-  /* Status bar glow (Scene 3) */
-  .mockup-statusbar--glow {
-    box-shadow: inset 0 1px 0 rgba(139, 92, 160, 0.12);
-  }
-
-  /* ── Scene 4: Copilot Usage ────────────────────────────────── */
-  .mockup-sidebar--projects {
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    overflow-y: auto;
-  }
-
-  .mockup-usage__header {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--m-accent);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .mockup-usage__filters {
-    display: flex;
-    gap: 4px;
-    margin-top: 8px;
-  }
-
-  .mockup-chip {
-    font-size: 10px;
-    padding: 2px 10px;
-    border-radius: var(--r-full);
-    color: var(--m-text3);
-    background: transparent;
-    border: 1px solid var(--m-border);
-  }
-
-  .mockup-chip--active {
-    background: var(--m-accent);
-    color: #fff;
-    border-color: var(--m-accent);
-  }
-
-  .mockup-usage__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-    margin-top: 8px;
-  }
-
-  .mockup-stat {
-    background: var(--m-surface2);
-    border-radius: var(--r-sm);
-    padding: 10px 8px;
-    text-align: center;
-  }
-
-  .mockup-stat__val {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--m-accent);
-    font-family: var(--f-mono);
-    line-height: 1.2;
-  }
-
-  .mockup-stat__label {
-    font-size: 7px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--m-text3);
-    margin-top: 2px;
-  }
-
-  .mockup-usage__models {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding-top: 8px;
-    border-top: 1px solid var(--m-border);
-    margin-top: 4px;
-  }
-
-  .mockup-model-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 10px;
-    font-family: var(--f-mono);
-  }
-
-  .mockup-model-row__name { color: var(--m-text2); }
-  .mockup-model-row__count { color: var(--m-text3); }
-
-  .mockup-project-card {
-    background: var(--m-surface);
-    border: 1px solid var(--m-border);
-    border-radius: var(--r-sm);
-    padding: 12px;
-  }
-
-  .mockup-project-card__header {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--m-text);
-  }
-
-  .mockup-project-card__header .mockup-count {
-    margin-left: auto;
-  }
-
-  .mockup-project-card__status {
-    display: flex;
-    gap: 10px;
-    font-size: 10px;
-    margin-top: 6px;
-  }
-
-  .mockup-project-card__done { color: var(--m-green); }
-  .mockup-project-card__pending { color: var(--m-text3); }
 
   /* Typing cursor */
   .typing-cursor::after {
@@ -1238,10 +844,10 @@
 
   /* Responsive showcase */
   @media (max-width: 900px) {
-    .showcase__inner {
+    .showcase__layout {
       grid-template-columns: 1fr;
     }
-    .showcase__mockup {
+    .showcase__sticky {
       position: relative;
       top: auto;
     }
@@ -2120,7 +1726,7 @@
     .footer__links { flex-wrap: wrap; gap: var(--s-md); }
   }
 
-  /* Showcase on mobile — stack and show static mockup */
+  /* Showcase on mobile — stack screenshot under text */
   @media (max-width: 900px) {
     .showcase__panel:first-child {
       align-items: flex-start;

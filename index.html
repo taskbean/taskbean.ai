@@ -113,398 +113,77 @@
     </div>
   </section>
 
-  <!-- ═══ SHOWCASE — Scroll-Driven Animated Walkthrough ═══ -->
-  <section class="showcase" aria-label="Product walkthrough">
-    <div class="showcase__inner container container--wide">
+  <!-- ═══ SHOWCASE — Real product screenshots, scroll-driven ═══ -->
+  <section class="showcase" id="showcase" aria-label="Product walkthrough">
+    <div class="showcase__layout container container--wide">
 
-      <!-- Left: scrolling text panels -->
-      <div class="showcase__text">
+      <!-- Left: scrolling text panels (the accessible narrative) -->
+      <div class="showcase__panels">
         <div class="showcase__panel" data-scene="1">
           <div class="showcase__panel-content">
-            <span class="badge">AI Chat</span>
-            <h2>Talk to the bean.<br>It gets things done.</h2>
-            <p>Natural language task management with real tool-calling. Say <em>"plan my day"</em> and the AI structures your tasks, sets reminders, and prioritizes — all in one turn.</p>
+            <span class="badge">Task composer</span>
+            <h2>Start where<br>you are.</h2>
+            <p>Drop a task into the composer. Add context chips for files, links, or notes. Taskbean stays out of your way until you call it.</p>
           </div>
         </div>
         <div class="showcase__panel" data-scene="2">
           <div class="showcase__panel-content">
-            <span class="badge">File Extraction</span>
-            <h2>Drop a file.<br>Get tasks back.</h2>
-            <p>Paste meeting notes, drop a PDF, or forward an email. The AI extracts action items automatically — no manual entry, no copy-paste.</p>
+            <span class="badge">Task detail</span>
+            <h2>Every task<br>has a home.</h2>
+            <p>Rich task detail — status, priority, notes, subtasks, history. Your work lives in one place, not scattered across three SaaS tabs.</p>
           </div>
         </div>
         <div class="showcase__panel" data-scene="3">
           <div class="showcase__panel-content">
-            <span class="badge">NPU Acceleration</span>
-            <h2>Your hardware.<br>Maximum speed.</h2>
-            <p>Runs on NPU, GPU, or CPU — whatever your machine has. Hot-swap models on the fly. See real-time hardware stats in nerd mode.</p>
+            <span class="badge">Ask anything</span>
+            <h2>Ask it anything,<br>get a real answer.</h2>
+            <p>Local LLMs answer from your own task state. No cloud round-trip, no context lost. Paste an error, ask for a breakdown, get a plan.</p>
           </div>
         </div>
         <div class="showcase__panel" data-scene="4">
           <div class="showcase__panel-content">
-            <span class="badge">Copilot Usage</span>
-            <h2>Track your AI.<br>Know the cost.</h2>
-            <p>See tokens, sessions, requests and turns across all your Copilot coding sessions. Group tasks by project with automatic GitHub repo detection.</p>
+            <span class="badge">CLI + app + agent</span>
+            <h2>The CLI is<br>the companion.</h2>
+            <p>Run <code>bean add</code> in any terminal — see it in the app instantly. Your coding agent logs its own work via the Agent Skill. One surface, your rules.</p>
           </div>
         </div>
       </div>
 
-      <!-- Right: sticky mockup -->
-      <div class="showcase__mockup">
-        <div class="app-mockup app-mockup--latte" aria-hidden="true">
-          <!-- App header — matches real app: tabs left, logo center, actions right -->
-          <div class="mockup-appbar">
-            <div class="mockup-appbar__left">
-              <span class="mockup-appbar__tab mockup-appbar__tab--active" data-tab="tasks"><i data-lucide="check-square" class="icon-sm"></i> Tasks <span class="mockup-count">5</span></span>
-              <span class="mockup-appbar__tab" data-tab="recurring"><i data-lucide="timer" class="icon-sm"></i> Recurring <span class="mockup-count mockup-count--dim">0</span></span>
-              <span class="mockup-appbar__tab" data-tab="projects"><i data-lucide="folder-kanban" class="icon-sm"></i> Projects <span class="mockup-count">1</span></span>
-              <span class="mockup-appbar__tab"><i data-lucide="eye" class="icon-sm"></i></span>
-              <span class="mockup-appbar__tab"><i data-lucide="plus" class="icon-sm"></i></span>
-            </div>
-            <div class="mockup-appbar__center">
-              <img src="assets/bean-48.png" alt="" width="12" height="22">
-              <span class="mockup-appbar__brand">taskbean</span>
-            </div>
-            <div class="mockup-appbar__right">
-              <span class="mockup-appbar__icon"><i data-lucide="settings" class="icon-sm"></i></span>
-              <span class="mockup-appbar__install"><i data-lucide="download" class="icon-sm"></i> Install</span>
-            </div>
-          </div>
-
-          <!-- Scene container — scenes cross-fade -->
-          <div class="mockup-scenes">
-
-            <!-- ╌╌╌ SCENE 1: AI Chat ╌╌╌ -->
-            <div class="mockup-scene scene-active" data-scene="1">
-              <div class="mockup-body">
-                <div class="mockup-sidebar">
-                  <div class="mockup-task mockup-task--complete scene-el" data-delay="1400">
-                    <span class="mockup-check mockup-check--done">✓</span>
-                    <div><div class="mockup-task__title mockup-task__title--done">Review Q2 roadmap</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Today</span> · <span class="meta-src meta-src--cmd"><i data-lucide="message-square" class="icon-sm"></i> command</span></div></div>
-                  </div>
-                  <div class="mockup-task scene-el" data-delay="800">
-                    <span class="mockup-check"></span>
-                    <div><div class="mockup-task__title">Update API docs</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Tomorrow</span> · <span class="meta-src meta-src--agent"><i data-lucide="bot" class="icon-sm"></i> agent</span></div></div>
-                  </div>
-                  <div class="mockup-task scene-el" data-delay="900">
-                    <span class="mockup-check"></span>
-                    <div><div class="mockup-task__title">Fix auth middleware</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Friday</span> · <span class="meta-src meta-src--ext"><i data-lucide="brain" class="icon-sm"></i> extracted</span></div></div>
-                  </div>
-                  <div class="mockup-task scene-el" data-delay="1000">
-                    <span class="mockup-check"></span>
-                    <div><div class="mockup-task__title">Deploy staging build</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Fri 17:00</span> · <span class="meta-src meta-src--cmd"><i data-lucide="message-square" class="icon-sm"></i> command</span></div></div>
-                  </div>
-                  <div class="mockup-task scene-el" data-delay="1100">
-                    <span class="mockup-check"></span>
-                    <div><div class="mockup-task__title">Write release notes</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Next Mon</span> · <span class="meta-src meta-src--agent"><i data-lucide="bot" class="icon-sm"></i> agent</span></div></div>
-                  </div>
-                </div>
-                <div class="mockup-chat">
-                  <div class="mockup-chat__header">
-                    <span class="mockup-chat__new">+ New Chat</span>
-                    <span class="mockup-chat__status">● Ready</span>
-                  </div>
-                  <div class="mockup-chat__messages">
-                    <div class="mockup-msg mockup-msg--user scene-el" data-delay="200">
-                      Plan my day — I have a standup at 10 and a deploy at 5
-                    </div>
-                    <div class="mockup-msg mockup-msg--ai scene-el" data-delay="600">
-                      <span class="mockup-msg__icon"><i data-lucide="sparkles" class="icon-sm"></i></span>
-                      <div class="typewriter">
-                        Here's your plan for today:<br><br>
-                        <strong>Morning</strong><br>
-                        ☐ Review Q2 roadmap <span class="mockup-tag">before standup</span><br>
-                        ☐ Fix auth middleware <span class="mockup-tag">high priority</span><br><br>
-                        <strong>Afternoon</strong><br>
-                        ☐ Update API docs<br>
-                        ☐ Deploy staging build <span class="mockup-tag">5:00 PM</span><br><br>
-                        I've set a reminder for the deploy at 4:45 PM. ☕
-                      </div>
-                    </div>
-                    <div class="mockup-tool-call scene-el" data-delay="1200">
-                      <span><i data-lucide="wrench" class="icon-sm"></i></span> set_reminder("Deploy staging build", "4:45 PM") → <span class="tool-ok">✓ done</span>
-                    </div>
-                  </div>
-                  <div class="mockup-chat__input">
-                    <span class="mockup-chat__input-clip"><i data-lucide="paperclip" class="icon-sm"></i></span>
-                    <span>Type a command, paste text, or drop a file…</span>
-                    <div class="mockup-chat__input-actions"><span class="mockup-model-badge">phi-4-mini</span><span><i data-lucide="mic" class="icon-sm"></i></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="mockup-statusbar">
-                <span class="status-foundry">● Foundry</span>
-                <span><i data-lucide="cpu" class="icon-sm"></i> 12% · RAM 38.2/63.3 · VRAM 0.5GB · <i data-lucide="zap" class="icon-sm"></i> 0%</span>
-                <span>phi-4-mini-instruct-npu</span>
-                <span>Latte · Nerd</span>
-              </div>
-            </div>
-
-            <!-- ╌╌╌ SCENE 2: File Extraction ╌╌╌ -->
-            <div class="mockup-scene" data-scene="2">
-              <div class="mockup-body">
-                <div class="mockup-sidebar">
-                  <div class="mockup-task">
-                    <span class="mockup-check"></span>
-                    <div><div class="mockup-task__title">Fix auth middleware</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Friday</span> · <span class="meta-src meta-src--cmd"><i data-lucide="message-square" class="icon-sm"></i> command</span></div></div>
-                  </div>
-                  <div class="mockup-task">
-                    <span class="mockup-check"></span>
-                    <div><div class="mockup-task__title">Deploy staging build</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Friday</span> · <span class="meta-src meta-src--cmd"><i data-lucide="message-square" class="icon-sm"></i> command</span></div></div>
-                  </div>
-                  <div class="mockup-task mockup-task--new scene-el" data-delay="1200">
-                    <span class="mockup-check"></span>
-                    <div><div class="mockup-task__title">Draft launch blog post</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Next Tue</span> · <span class="meta-src meta-src--ext"><i data-lucide="brain" class="icon-sm"></i> extracted</span></div></div>
-                  </div>
-                  <div class="mockup-task mockup-task--new scene-el" data-delay="1400">
-                    <span class="mockup-check"></span>
-                    <div><div class="mockup-task__title">Update onboarding docs</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Next Wed</span> · <span class="meta-src meta-src--ext"><i data-lucide="brain" class="icon-sm"></i> extracted</span></div></div>
-                  </div>
-                  <div class="mockup-task mockup-task--new scene-el" data-delay="1600">
-                    <span class="mockup-check"></span>
-                    <div><div class="mockup-task__title">Schedule design review</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Next Thu</span> · <span class="meta-src meta-src--ext"><i data-lucide="brain" class="icon-sm"></i> extracted</span></div></div>
-                  </div>
-                  <div class="mockup-task mockup-task--new scene-el" data-delay="1800">
-                    <span class="mockup-check"></span>
-                    <div><div class="mockup-task__title">Send stakeholder update</div><div class="mockup-task__meta"><span class="meta-date"><i data-lucide="calendar" class="icon-sm"></i> Next Fri</span> · <span class="meta-src meta-src--ext"><i data-lucide="brain" class="icon-sm"></i> extracted</span></div></div>
-                  </div>
-                </div>
-                <div class="mockup-chat">
-                  <div class="mockup-chat__header">
-                    <span class="mockup-chat__new">+ New Chat</span>
-                    <span class="mockup-chat__status">● Ready</span>
-                  </div>
-                  <div class="mockup-chat__messages">
-                    <div class="mockup-file-card scene-el" data-delay="200">
-                      <div class="mockup-file-card__icon"><i data-lucide="file-text"></i></div>
-                      <div class="mockup-file-card__info">
-                        <div class="mockup-file-card__name">Q2-planning-notes.pdf</div>
-                        <div class="mockup-file-card__size">2.3 MB</div>
-                      </div>
-                      <div class="mockup-file-card__status">Uploaded</div>
-                    </div>
-                    <div class="mockup-msg mockup-msg--user scene-el" data-delay="400">
-                      What are the action items in this document?
-                    </div>
-                    <div class="mockup-progress scene-el" data-delay="600">
-                      <div class="mockup-progress__label">Extracting tasks…</div>
-                      <div class="mockup-progress__bar"><div class="mockup-progress__fill"></div></div>
-                    </div>
-                    <div class="mockup-msg mockup-msg--ai scene-el" data-delay="1000">
-                      <span class="mockup-msg__icon"><i data-lucide="sparkles" class="icon-sm"></i></span>
-                      <div>
-                        I found <strong>4 action items</strong> in your planning notes:<br><br>
-                        ✅ Draft launch blog post <span class="mockup-tag">Tue</span><br>
-                        ✅ Update onboarding docs <span class="mockup-tag">Wed</span><br>
-                        ✅ Schedule design review <span class="mockup-tag">Thu</span><br>
-                        ✅ Send stakeholder update <span class="mockup-tag">Fri</span><br><br>
-                        All four have been added to your task list. ☕
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mockup-chat__input">
-                    <span class="mockup-chat__input-clip"><i data-lucide="paperclip" class="icon-sm"></i></span>
-                    <span>Type a command, paste text, or drop a file…</span>
-                    <div class="mockup-chat__input-actions"><span class="mockup-model-badge">phi-4-mini</span><span><i data-lucide="mic" class="icon-sm"></i></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="mockup-statusbar">
-                <span class="status-foundry">● Foundry</span>
-                <span><i data-lucide="cpu" class="icon-sm"></i> 18% · RAM 41.7/63.3 · VRAM 0.5GB · <i data-lucide="zap" class="icon-sm"></i> 0%</span>
-                <span>phi-4-mini-instruct-npu</span>
-                <span>Latte · Nerd</span>
-              </div>
-            </div>
-
-            <!-- ╌╌╌ SCENE 3: NPU Acceleration ╌╌╌ -->
-            <div class="mockup-scene" data-scene="3">
-              <div class="mockup-body mockup-body--npu">
-                <!-- Model picker overlay -->
-                <div class="mockup-picker scene-el" data-delay="200">
-                  <div class="mockup-picker__header">
-                    <span class="mockup-picker__title"><i data-lucide="cpu" class="icon-sm"></i> Select AI Model</span>
-                    <div class="mockup-picker__filters">
-                      <span class="mockup-filter-chip"><i data-lucide="wrench" class="icon-sm"></i> Tools</span>
-                      <span class="mockup-filter-chip"><i data-lucide="cpu" class="icon-sm"></i> Compatible</span>
-                    </div>
-                    <span class="mockup-picker__close"><i data-lucide="x" class="icon-sm"></i></span>
-                  </div>
-                  <div class="mockup-picker__model mockup-picker__model--active scene-el" data-delay="400">
-                    <div class="mockup-picker__badge mockup-picker__badge--npu">NPU</div>
-                    <div>
-                      <div class="mockup-picker__name">Phi-4 Mini Instruct</div>
-                      <div class="mockup-picker__detail">3.8B params · 2.4 GB · Quantized INT4</div>
-                    </div>
-                    <span class="mockup-picker__status mockup-picker__status--active">✓ Active</span>
-                  </div>
-                  <div class="mockup-picker__model scene-el" data-delay="550">
-                    <div class="mockup-picker__badge mockup-picker__badge--gpu">GPU</div>
-                    <div>
-                      <div class="mockup-picker__name">Phi-4 Mini Instruct</div>
-                      <div class="mockup-picker__detail">3.8B params · 2.6 GB · ONNX FP16</div>
-                    </div>
-                    <span class="mockup-picker__status">Available</span>
-                  </div>
-                  <div class="mockup-picker__model scene-el" data-delay="700">
-                    <div class="mockup-picker__badge mockup-picker__badge--cpu">CPU</div>
-                    <div>
-                      <div class="mockup-picker__name">Qwen 2.5 Coder</div>
-                      <div class="mockup-picker__detail">1.5B params · 1.6 GB · Quantized INT4</div>
-                    </div>
-                    <span class="mockup-picker__status">Available</span>
-                  </div>
-                  <div class="mockup-picker__model scene-el" data-delay="850">
-                    <div class="mockup-picker__badge mockup-picker__badge--gpu">GPU</div>
-                    <div>
-                      <div class="mockup-picker__name">Phi-4 Multimodal</div>
-                      <div class="mockup-picker__detail">5.6B params · 3.1 GB · ONNX FP16</div>
-                    </div>
-                    <span class="mockup-picker__dl"><i data-lucide="download" class="icon-sm"></i> Download</span>
-                  </div>
-                </div>
-
-                <!-- Hardware stats panel -->
-                <div class="mockup-hw">
-                  <div class="mockup-hw__title scene-el" data-delay="200"><i data-lucide="sparkles" class="icon-sm"></i> Hardware Stats</div>
-                  <div class="mockup-hw__stat scene-el" data-delay="400">
-                    <div class="mockup-hw__label">CPU</div>
-                    <div class="mockup-hw__bar"><div class="mockup-hw__fill" style="--fill-to: 14%"></div></div>
-                    <div class="mockup-hw__val">14%</div>
-                  </div>
-                  <div class="mockup-hw__stat scene-el" data-delay="550">
-                    <div class="mockup-hw__label">RAM</div>
-                    <div class="mockup-hw__bar"><div class="mockup-hw__fill" style="--fill-to: 60%"></div></div>
-                    <div class="mockup-hw__val">38/64 GB</div>
-                  </div>
-                  <div class="mockup-hw__stat scene-el" data-delay="700">
-                    <div class="mockup-hw__label">GPU</div>
-                    <div class="mockup-hw__bar"><div class="mockup-hw__fill" style="--fill-to: 3%"></div></div>
-                    <div class="mockup-hw__val">3%</div>
-                  </div>
-                  <div class="mockup-hw__stat mockup-hw__stat--npu scene-el" data-delay="850">
-                    <div class="mockup-hw__label">NPU</div>
-                    <div class="mockup-hw__bar mockup-hw__bar--npu"><div class="mockup-hw__fill mockup-hw__fill--npu" style="--fill-to: 87%"></div></div>
-                    <div class="mockup-hw__val mockup-hw__val--npu">87%</div>
-                  </div>
-                  <div class="mockup-hw__stat scene-el" data-delay="1000">
-                    <div class="mockup-hw__label">Model</div>
-                    <div class="mockup-hw__model-name">phi-4-mini-instruct</div>
-                  </div>
-                  <div class="mockup-hw__stat scene-el" data-delay="1100">
-                    <div class="mockup-hw__label">VRAM</div>
-                    <div class="mockup-hw__bar"><div class="mockup-hw__fill" style="--fill-to: 8%"></div></div>
-                    <div class="mockup-hw__val">0.5 GB</div>
-                  </div>
-                  <div class="mockup-hw__inference scene-el" data-delay="1200">
-                    <span>⚡ Inference: <strong class="inference-speed">24.3 tok/s</strong></span>
-                    <span>Latency: <strong class="inference-latency">41ms</strong></span>
-                  </div>
-                </div>
-              </div>
-              <div class="mockup-statusbar mockup-statusbar--glow">
-                <span class="status-foundry">● Foundry</span>
-                <span><i data-lucide="cpu" class="icon-sm"></i> 14% · RAM 38.2/63.3 · VRAM 0.5GB · <i data-lucide="zap" class="icon-sm"></i> 87%</span>
-                <span>phi-4-mini-instruct-npu</span>
-                <span>Latte · Nerd</span>
-              </div>
-            </div>
-
-            <!-- ╌╌╌ SCENE 4: Copilot Usage ╌╌╌ -->
-            <div class="mockup-scene" data-scene="4">
-              <div class="mockup-body">
-                <div class="mockup-sidebar mockup-sidebar--projects">
-                  <!-- Copilot usage section -->
-                  <div class="mockup-usage scene-el" data-delay="200">
-                    <div class="mockup-usage__header"><i data-lucide="activity" class="icon-sm"></i> copilot usage</div>
-                    <div class="mockup-usage__filters">
-                      <span class="mockup-chip mockup-chip--active">Today</span>
-                      <span class="mockup-chip">Week</span>
-                      <span class="mockup-chip">All</span>
-                    </div>
-                    <div class="mockup-usage__grid scene-el" data-delay="400">
-                      <div class="mockup-stat">
-                        <div class="mockup-stat__val">894.1K</div>
-                        <div class="mockup-stat__label">OUTPUT TOKENS</div>
-                      </div>
-                      <div class="mockup-stat">
-                        <div class="mockup-stat__val">10</div>
-                        <div class="mockup-stat__label">SESSIONS</div>
-                      </div>
-                      <div class="mockup-stat">
-                        <div class="mockup-stat__val">2,165</div>
-                        <div class="mockup-stat__label">REQUESTS</div>
-                      </div>
-                      <div class="mockup-stat">
-                        <div class="mockup-stat__val">77</div>
-                        <div class="mockup-stat__label">TURNS</div>
-                      </div>
-                    </div>
-                    <div class="mockup-usage__models scene-el" data-delay="600">
-                      <div class="mockup-model-row">
-                        <span class="mockup-model-row__name">claude-opus-4.6-1m</span>
-                        <span class="mockup-model-row__count">6 sessions</span>
-                      </div>
-                      <div class="mockup-model-row">
-                        <span class="mockup-model-row__name">unknown</span>
-                        <span class="mockup-model-row__count">3 sessions</span>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Project card -->
-                  <div class="mockup-project-card scene-el" data-delay="800">
-                    <div class="mockup-project-card__header">
-                      <i data-lucide="folder-kanban" class="icon-sm"></i>
-                      <span class="mockup-project-card__name">foundry-local</span>
-                      <span class="mockup-count">7 tasks</span>
-                    </div>
-                    <div class="mockup-project-card__status">
-                      <span class="mockup-project-card__done">● 3 done</span>
-                      <span class="mockup-project-card__pending">● 4 pending</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="mockup-chat">
-                  <div class="mockup-chat__header">
-                    <span class="mockup-chat__new"><i data-lucide="plus" class="icon-sm"></i> New Chat</span>
-                    <span class="mockup-chat__status">● Ready</span>
-                  </div>
-                  <div class="mockup-chat__messages">
-                    <div class="mockup-msg mockup-msg--user scene-el" data-delay="300">
-                      How many tokens did I use today?
-                    </div>
-                    <div class="mockup-msg mockup-msg--ai scene-el" data-delay="700">
-                      <span class="mockup-msg__icon"><i data-lucide="sparkles" class="icon-sm"></i></span>
-                      <div>
-                        Today you've used <strong>894.1K output tokens</strong> across <strong>10 sessions</strong>.<br><br>
-                        Your most active model is <strong>claude-opus-4.6-1m</strong> with 6 sessions. The <em>foundry-local</em> project has 7 tasks — 3 done, 4 pending.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mockup-chat__input">
-                    <span class="mockup-chat__input-clip"><i data-lucide="paperclip" class="icon-sm"></i></span>
-                    <span>Type a command, paste text, or drop a file…</span>
-                    <div class="mockup-chat__input-actions"><span class="mockup-model-badge">phi-4-mini</span><span><i data-lucide="mic" class="icon-sm"></i></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="mockup-statusbar">
-                <span class="status-foundry">● Foundry</span>
-                <span><i data-lucide="cpu" class="icon-sm"></i> 18% · RAM 47.6/63.3 · VRAM 0.5GB · <i data-lucide="zap" class="icon-sm"></i> 0%</span>
-                <span>phi-4-mini-instruct-npu</span>
-                <span>Latte · Nerd</span>
-              </div>
-            </div>
-
-          </div><!-- /mockup-scenes -->
-        </div><!-- /app-mockup -->
+      <!-- Right: sticky screenshot frame with cross-fading scenes -->
+      <div class="showcase__sticky">
+        <div class="showcase__frame" aria-hidden="true">
+          <picture class="scene-img scene-active" data-scene="1">
+            <source media="(max-width: 700px)" type="image/webp" srcset="assets/screens/scene-1-mobile.webp" />
+            <source media="(max-width: 700px)" type="image/png"  srcset="assets/screens/scene-1-mobile.png" />
+            <source type="image/webp" srcset="assets/screens/scene-1-desktop.webp" />
+            <img src="assets/screens/scene-1-desktop.png" alt="" width="1490" height="790" loading="lazy" decoding="async" />
+          </picture>
+          <picture class="scene-img" data-scene="2">
+            <source media="(max-width: 700px)" type="image/webp" srcset="assets/screens/scene-2-mobile.webp" />
+            <source media="(max-width: 700px)" type="image/png"  srcset="assets/screens/scene-2-mobile.png" />
+            <source type="image/webp" srcset="assets/screens/scene-2-desktop.webp" />
+            <img src="assets/screens/scene-2-desktop.png" alt="" width="1490" height="790" loading="lazy" decoding="async" />
+          </picture>
+          <picture class="scene-img" data-scene="3">
+            <source media="(max-width: 700px)" type="image/webp" srcset="assets/screens/scene-3-mobile.webp" />
+            <source media="(max-width: 700px)" type="image/png"  srcset="assets/screens/scene-3-mobile.png" />
+            <source type="image/webp" srcset="assets/screens/scene-3-desktop.webp" />
+            <img src="assets/screens/scene-3-desktop.png" alt="" width="1490" height="790" loading="lazy" decoding="async" />
+          </picture>
+          <picture class="scene-img" data-scene="4">
+            <source media="(max-width: 700px)" type="image/webp" srcset="assets/screens/scene-4-mobile.webp" />
+            <source media="(max-width: 700px)" type="image/png"  srcset="assets/screens/scene-4-mobile.png" />
+            <source type="image/webp" srcset="assets/screens/scene-4-desktop.webp" />
+            <img src="assets/screens/scene-4-desktop.png" alt="" width="1490" height="790" loading="lazy" decoding="async" />
+          </picture>
+        </div>
 
         <!-- Progress dots -->
         <div class="showcase__dots" aria-label="Walkthrough scenes">
-          <button class="showcase__dot dot-active" data-scene="1" aria-current="true" aria-label="Scene 1: AI Chat"></button>
-          <button class="showcase__dot" data-scene="2" aria-current="false" aria-label="Scene 2: File Extraction"></button>
-          <button class="showcase__dot" data-scene="3" aria-current="false" aria-label="Scene 3: NPU Acceleration"></button>
-          <button class="showcase__dot" data-scene="4" aria-current="false" aria-label="Scene 4: Copilot Usage"></button>
+          <button class="showcase__dot dot-active" data-scene="1" aria-current="true" aria-label="Scene 1: Task composer"></button>
+          <button class="showcase__dot" data-scene="2" aria-current="false" aria-label="Scene 2: Task detail"></button>
+          <button class="showcase__dot" data-scene="3" aria-current="false" aria-label="Scene 3: Ask anything"></button>
+          <button class="showcase__dot" data-scene="4" aria-current="false" aria-label="Scene 4: CLI companion"></button>
         </div>
       </div>
 
