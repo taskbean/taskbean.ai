@@ -103,7 +103,7 @@
     "primary": {
       "type": "button",
       "label": "Download",
-      "href": "https://github.com/taskbean/taskbean#install"
+      "href": "https://github.com/taskbean/taskbean#quick-start"
     }
   },
   "footer": {
@@ -116,7 +116,7 @@
         "items": [
           { "label": "Home", "href": "https://taskbean.ai" },
           { "label": "How It Works", "href": "https://taskbean.ai/how-it-works.html" },
-          { "label": "Download", "href": "https://github.com/taskbean/taskbean#install" }
+          { "label": "Download", "href": "https://github.com/taskbean/taskbean#quick-start" }
         ]
       },
       {

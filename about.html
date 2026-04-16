@@ -6,25 +6,48 @@
   <title>About — taskbean</title>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="c82a8caa-5d07-47bd-8e62-52bf5947c08b"></script>
   <meta name="description" content="Why taskbean exists — the mission behind a fully local, privacy-first AI task manager.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="taskbean">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="About taskbean — local, private, free forever">
+  <meta property="og:description" content="Why taskbean exists — the mission behind a fully local, privacy-first AI task manager.">
+  <meta property="og:url" content="https://taskbean.ai/about.html">
+  <meta property="og:image" content="https://taskbean.ai/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="taskbean — the AI task manager that lives on your machine">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About taskbean — local, private, free forever">
+  <meta name="twitter:description" content="Why taskbean exists — the mission behind a fully local, privacy-first AI task manager.">
+  <meta name="twitter:image" content="https://taskbean.ai/assets/og-image.png">
+  <meta name="twitter:image:alt" content="taskbean — the AI task manager that lives on your machine">
+
   <link rel="canonical" href="https://taskbean.ai/about.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
   <link rel="stylesheet" href="css/style.css">
-  <script src="vendor/lucide.min.js"></script>
+  <script defer src="vendor/lucide.min.js"></script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ═══ NAVIGATION ═══ -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="taskbean home">
-        <img src="assets/wordmark-nav.png" alt="taskbean" class="nav__wordmark" width="115" height="32">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/wordmark-nav.png" alt="taskbean" class="nav__wordmark">
       </a>
-      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
-      <div class="nav__links">
+      <div class="nav__links" id="nav-links">
         <a href="how-it-works.html" class="nav__link">How It Works</a>
         <a href="https://docs.taskbean.ai" class="nav__link">Docs</a>
         <a href="about.html" class="nav__link">About</a>
@@ -34,10 +57,12 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           <span>Star on GitHub</span>
         </a>
-        <a href="https://github.com/taskbean/taskbean#install" class="btn btn--primary">Download</a>
+        <a href="https://github.com/taskbean/taskbean#quick-start" class="btn btn--primary">Download</a>
       </div>
     </div>
   </nav>
+
+  <main id="main">
 
   <!-- ═══ ABOUT HERO ═══ -->
   <section class="about-hero">
@@ -128,29 +153,42 @@
     </div>
   </section>
 
-  <!-- ═══ ROADMAP ═══ -->
-  <section style="padding-block: var(--s-2xl) var(--s-3xl);">
+  <!-- ═══ SHIPPING NOW ═══ -->
+  <section style="padding-block: var(--s-2xl) 0;">
     <div class="container container--narrow">
       <div class="section-header reveal">
-        <h2>Roadmap</h2>
-        <p>The bean has plans.</p>
+        <h2>Shipping today</h2>
+        <p>Already in your terminal and your browser.</p>
       </div>
 
       <div class="stagger" style="display: flex; flex-direction: column; gap: var(--s-md);">
         <div class="reveal" style="display: flex; align-items: flex-start; gap: var(--s-md); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-md); padding: var(--s-lg);">
           <span style="font-size: 1.4rem; color: var(--c-primary);"><i data-lucide="terminal"></i></span>
           <div>
-            <h3 style="font-size: 1rem; margin-bottom: 4px;">taskbean CLI</h3>
-            <p style="font-size: var(--fs-small); margin: 0;">Surface tasks and todos across local development repos from your terminal.</p>
+            <h3 style="font-size: 1rem; margin-bottom: 4px;">taskbean CLI <span style="color: var(--c-success); font-size: var(--fs-xs);">✓ shipping</span></h3>
+            <p style="font-size: var(--fs-small); margin: 0;"><code style="font-family: var(--f-mono);">npm install -g taskbean</code>. <code style="font-family: var(--f-mono);">bean add</code>, <code style="font-family: var(--f-mono);">bean done</code>, <code style="font-family: var(--f-mono);">bean report</code> — your task list, at the prompt.</p>
           </div>
         </div>
         <div class="reveal" style="display: flex; align-items: flex-start; gap: var(--s-md); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-md); padding: var(--s-lg);">
           <span style="font-size: 1.4rem; color: var(--c-primary);"><i data-lucide="bot"></i></span>
           <div>
-            <h3 style="font-size: 1rem; margin-bottom: 4px;">Agent Skill</h3>
-            <p style="font-size: var(--fs-small); margin: 0;">Expose taskbean as a callable skill for AI coding agents and Foundry workflows.</p>
+            <h3 style="font-size: 1rem; margin-bottom: 4px;">Agent Skill <span style="color: var(--c-success); font-size: var(--fs-xs);">✓ shipping</span></h3>
+            <p style="font-size: var(--fs-small); margin: 0;"><code style="font-family: var(--f-mono);">bean install</code> links taskbean as an Agent Skill — Copilot CLI, Claude Code, and OpenCode auto-discover it and log work as they go.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ROADMAP ═══ -->
+  <section style="padding-block: var(--s-2xl) var(--s-3xl);">
+    <div class="container container--narrow">
+      <div class="section-header reveal">
+        <h2>On the roadmap</h2>
+        <p>The bean has plans.</p>
+      </div>
+
+      <div class="stagger" style="display: flex; flex-direction: column; gap: var(--s-md);">
         <div class="reveal" style="display: flex; align-items: flex-start; gap: var(--s-md); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--r-md); padding: var(--s-lg);">
           <span style="font-size: 1.4rem; color: var(--c-primary);"><i data-lucide="globe"></i></span>
           <div>
@@ -175,11 +213,13 @@
       <h2 class="reveal">The grind is real.<br>Keep it local.</h2>
       <p class="reveal">Open source, MIT licensed, and built for developers who want<br>their AI tools to respect their privacy.</p>
       <div class="hero__actions reveal">
-        <a href="https://github.com/taskbean/taskbean#install" class="btn btn--primary btn--large">Get Started</a>
+        <a href="https://github.com/taskbean/taskbean#quick-start" class="btn btn--primary btn--large">Get Started</a>
         <a href="https://docs.taskbean.ai" class="btn btn--ghost btn--large">Read the Docs</a>
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ═══ FOOTER ═══ -->
   <footer class="footer">
@@ -197,6 +237,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>

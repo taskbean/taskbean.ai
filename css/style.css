@@ -161,6 +161,23 @@
     outline-offset: 3px;
     border-radius: var(--r-sm);
   }
+
+  /* Skip link — visible on keyboard focus, off-screen otherwise */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 999;
+    padding: var(--s-sm) var(--s-md);
+    background: var(--c-primary);
+    color: #1A120E;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 var(--r-sm) 0;
+  }
+  .skip-link:focus {
+    left: 0;
+  }
 }
 
 /* ── Layout ───────────────────────────────────────────────────────── */
@@ -964,17 +981,26 @@
   }
 
   .showcase__dot {
+    width: 24px;
+    height: 24px;
+    min-height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: grid;
+    place-items: center;
+  }
+  .showcase__dot::before {
+    content: '';
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background: var(--c-text-3);
-    border: none;
-    cursor: pointer;
     transition: all var(--dur-med) var(--ease-out);
-    padding: 0;
   }
 
-  .showcase__dot.dot-active {
+  .showcase__dot.dot-active::before {
     background: var(--c-primary);
     box-shadow: 0 0 12px rgba(232, 134, 60, 0.4);
     transform: scale(1.3);

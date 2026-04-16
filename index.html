@@ -9,37 +9,47 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="taskbean">
+  <meta property="og:locale" content="en_US">
   <meta property="og:title" content="taskbean — Your tasks. Your machine. No compromise.">
   <meta property="og:description" content="The AI task manager that runs entirely on your device. No cloud. No subscription. Free forever.">
-  <meta property="og:url" content="https://taskbean.ai">
-  <meta property="og:site_name" content="taskbean">
+  <meta property="og:url" content="https://taskbean.ai/">
+  <meta property="og:image" content="https://taskbean.ai/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="taskbean — the AI task manager that lives on your machine">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="taskbean — AI task manager, 100% local">
   <meta name="twitter:description" content="No cloud. No subscription. No data leaves your machine.">
+  <meta name="twitter:image" content="https://taskbean.ai/assets/og-image.png">
+  <meta name="twitter:image:alt" content="taskbean — the AI task manager that lives on your machine">
 
   <link rel="canonical" href="https://taskbean.ai">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
   <link rel="stylesheet" href="css/style.css">
-  <script src="vendor/lucide.min.js"></script>
+  <script defer src="vendor/lucide.min.js"></script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ═══ NAVIGATION ═══ -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="taskbean home">
-        <img src="assets/wordmark-nav.png" alt="taskbean" class="nav__wordmark" width="115" height="32">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/wordmark-nav.png" alt="taskbean" class="nav__wordmark">
       </a>
 
-      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
 
-      <div class="nav__links">
+      <div class="nav__links" id="nav-links">
         <a href="how-it-works.html" class="nav__link">How It Works</a>
         <a href="https://docs.taskbean.ai" class="nav__link">Docs</a>
         <a href="about.html" class="nav__link">About</a>
@@ -50,10 +60,12 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           <span>Star on GitHub</span>
         </a>
-        <a href="https://github.com/taskbean/taskbean#install" class="btn btn--primary">Download</a>
+        <a href="https://github.com/taskbean/taskbean#quick-start" class="btn btn--primary">Download</a>
       </div>
     </div>
   </nav>
+
+  <main id="main">
 
   <!-- ═══ HERO ═══ -->
   <section class="hero hero--short">
@@ -67,7 +79,7 @@
         No data leaves your machine — unless you want it to.
       </p>
       <div class="hero__actions">
-        <a href="https://github.com/taskbean/taskbean#install" class="btn btn--primary btn--large">
+        <a href="https://github.com/taskbean/taskbean#quick-start" class="btn btn--primary btn--large">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Get Started
         </a>
@@ -114,7 +126,7 @@
 
       <!-- Right: sticky mockup -->
       <div class="showcase__mockup">
-        <div class="app-mockup app-mockup--latte">
+        <div class="app-mockup app-mockup--latte" aria-hidden="true">
           <!-- App header — matches real app: tabs left, logo center, actions right -->
           <div class="mockup-appbar">
             <div class="mockup-appbar__left">
@@ -463,11 +475,11 @@
         </div><!-- /app-mockup -->
 
         <!-- Progress dots -->
-        <div class="showcase__dots" role="tablist" aria-label="Walkthrough scenes">
-          <button class="showcase__dot dot-active" data-scene="1" role="tab" aria-selected="true" aria-label="Scene 1: AI Chat"></button>
-          <button class="showcase__dot" data-scene="2" role="tab" aria-selected="false" aria-label="Scene 2: File Extraction"></button>
-          <button class="showcase__dot" data-scene="3" role="tab" aria-selected="false" aria-label="Scene 3: NPU Acceleration"></button>
-          <button class="showcase__dot" data-scene="4" role="tab" aria-selected="false" aria-label="Scene 4: Copilot Usage"></button>
+        <div class="showcase__dots" aria-label="Walkthrough scenes">
+          <button class="showcase__dot dot-active" data-scene="1" aria-current="true" aria-label="Scene 1: AI Chat"></button>
+          <button class="showcase__dot" data-scene="2" aria-current="false" aria-label="Scene 2: File Extraction"></button>
+          <button class="showcase__dot" data-scene="3" aria-current="false" aria-label="Scene 3: NPU Acceleration"></button>
+          <button class="showcase__dot" data-scene="4" aria-current="false" aria-label="Scene 4: Copilot Usage"></button>
         </div>
       </div>
 
@@ -588,7 +600,7 @@
       </div>
 
       <div class="privacy__visual reveal">
-        <div class="privacy__diagram">┌─────────────────────────────────┐
+        <div class="privacy__diagram" role="img" aria-label="Architecture: Browser talks to Python backend, which runs on-device AI inference via Foundry Local, and reads/writes to a local SQLite store. No cloud.">┌─────────────────────────────────┐
 │  <span style="color:var(--c-primary)">Your Browser (PWA)</span>              │
 │  public/index.html              │
 └──────────────┬──────────────────┘
@@ -681,6 +693,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ═══ FOOTER ═══ -->
   <footer class="footer">
     <div class="container footer__inner">
@@ -697,6 +711,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>

@@ -17,14 +17,30 @@
   const toggle = document.querySelector('.nav__toggle');
   const links = document.querySelector('.nav__links');
   if (toggle && links) {
+    const closeMenu = () => {
+      if (!links.classList.contains('open')) return;
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.focus();
+    };
     toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', links.classList.contains('open'));
+      const isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
     });
     // Close on link click
     links.querySelectorAll('a').forEach(a =>
       a.addEventListener('click', () => links.classList.remove('open'))
     );
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenu();
+    });
+    // Close on outside click
+    document.addEventListener('click', e => {
+      if (!links.classList.contains('open')) return;
+      if (toggle.contains(e.target) || links.contains(e.target)) return;
+      closeMenu();
+    });
   }
 
   // ── Active nav link ───────────────────────────────────────────────
@@ -135,7 +151,7 @@
       dots.forEach(d => {
         const isActive = +d.dataset.scene === num;
         d.classList.toggle('dot-active', isActive);
-        d.setAttribute('aria-selected', isActive);
+        d.setAttribute('aria-current', isActive ? 'true' : 'false');
       });
 
       // Switch active app bar tab (Projects for scene 4, Tasks for 1-3)
@@ -199,7 +215,7 @@
     document.querySelectorAll('a.btn').forEach(btn => {
       const text = btn.textContent.trim().toLowerCase();
       const href = btn.getAttribute('href') || '';
-      if (text.includes('download') || text.includes('get started') || href.includes('#install')) {
+      if (text.includes('download') || text.includes('get started') || text.includes('install the cli') || href.includes('#quick-start')) {
         const isNav = btn.closest('.nav__actions');
         if (isNav) {
           btn.href = 'https://github.com/taskbean/taskbean';
