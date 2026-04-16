@@ -57,9 +57,10 @@
       </div>
 
       <div class="nav__actions">
-        <a href="https://github.com/taskbean/taskbean" class="nav__github" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          <span>Star on GitHub</span>
+        <a href="https://github.com/taskbean/taskbean" class="nav__github" target="_blank" rel="noopener" aria-label="Star taskbean on GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span class="nav__github-label">Star</span>
+          <img class="nav__github-count" src="https://img.shields.io/github/stars/taskbean/taskbean?style=flat&label=&labelColor=%231A120E&color=%23E8863C" alt="GitHub stars" loading="lazy" width="44" height="20" decoding="async">
         </a>
         <a href="https://github.com/taskbean/taskbean#quick-start" class="btn btn--primary">Download</a>
       </div>
@@ -83,12 +84,17 @@
 
         <div class="hero__terminal" role="img" aria-label="Terminal showing: npm install -g taskbean, then bean install --agent copilot">
           <div class="hero__terminal-bar" aria-hidden="true">
-            <span></span><span></span><span></span>
+            <span class="hero__terminal-title">PowerShell&nbsp;&nbsp;—&nbsp;&nbsp;taskbean</span>
+            <span class="hero__terminal-winctrl">
+              <span class="hero__terminal-winbtn" aria-hidden="true">&#x2013;</span>
+              <span class="hero__terminal-winbtn" aria-hidden="true">&#x25A1;</span>
+              <span class="hero__terminal-winbtn hero__terminal-winbtn--close" aria-hidden="true">&#x2715;</span>
+            </span>
           </div>
-          <pre class="hero__terminal-body" aria-hidden="true"><code><span class="line"><span class="prompt">$</span> npm install -g taskbean</span>
+          <pre class="hero__terminal-body" aria-hidden="true"><code><span class="line"><span class="prompt">&gt;</span> npm install -g taskbean</span>
 <span class="line ok">✓ installed</span>
-<span class="line"><span class="prompt">$</span> bean install --agent copilot</span>
-<span class="line ok">✓ Skill linked</span>
+<span class="line"><span class="prompt">&gt;</span> bean install --agent copilot</span>
+<span class="line ok">&#x2713; Skill linked</span>
 </code></pre>
         </div>
 
@@ -127,19 +133,17 @@
         <div class="quickstart__step reveal">
           <h3><span class="quickstart__num">01</span> Install the CLI</h3>
           <div class="code-block">
-            <pre><span class="cmd">npm</span> install -g taskbean</pre>
+            <pre><span class="comment"># npm (macOS, Linux, Windows)</span>
+<span class="cmd">npm</span> install -g taskbean</pre>
           </div>
-          <details class="quickstart__alt">
-            <summary>Other installers</summary>
-            <div class="code-block">
-              <pre><span class="comment"># macOS / Linux</span>
+          <div class="code-block">
+            <pre><span class="comment"># macOS / Linux</span>
 <span class="cmd">curl</span> -fsSL https://taskbean.ai/install | bash</pre>
-            </div>
-            <div class="code-block">
-              <pre><span class="comment"># Windows PowerShell</span>
+          </div>
+          <div class="code-block">
+            <pre><span class="comment"># Windows PowerShell</span>
 <span class="cmd">iwr</span> -useb https://taskbean.ai/install.ps1 | iex</pre>
-            </div>
-          </details>
+          </div>
         </div>
 
         <div class="quickstart__step reveal">
@@ -243,11 +247,6 @@
   <!-- ═══ TRUST BAR (agent compatibility) ═══ -->
   <section class="trust" aria-label="Works with these agents">
     <div class="container">
-      <a class="trust__shield" href="https://github.com/taskbean/taskbean" target="_blank" rel="noopener">
-        <img src="https://img.shields.io/github/stars/taskbean/taskbean?style=flat&logo=github&logoColor=%23EADBC8&label=star&labelColor=%231A120E&color=%23E8863C"
-             alt="Star taskbean/taskbean on GitHub"
-             loading="lazy" width="120" height="20" decoding="async" />
-      </a>
       <p class="trust__label">Works with your coding agent</p>
       <ul class="trust__pills">
         <li><a class="trust__pill" href="https://github.com/github/copilot-cli" target="_blank" rel="noopener">GitHub Copilot CLI</a></li>
@@ -279,6 +278,12 @@
             <li>OpenCode</li>
             <li>Codex</li>
           </ul>
+        </div>
+
+        <div class="bento__card reveal">
+          <div class="bento__icon"><i data-lucide="wifi-off"></i></div>
+          <h3>Works Offline</h3>
+          <p>Installable as a PWA with full offline support. No internet required, ever. Your tasks are always accessible.</p>
         </div>
 
         <div class="bento__card bento__card--wide reveal">
@@ -322,118 +327,6 @@
           <h3>Nerd Mode</h3>
           <p>Live telemetry panel with CPU, RAM, GPU, NPU stats. OpenTelemetry traces, metrics sparklines, and Jaeger integration. See every token.</p>
         </div>
-
-        <div class="bento__card reveal">
-          <div class="bento__icon"><i data-lucide="wifi-off"></i></div>
-          <h3>Works Offline</h3>
-          <p>Installable as a PWA with full offline support. No internet required, ever. Your tasks are always accessible.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ PRIVACY ═══ -->
-  <section class="privacy" id="privacy">
-    <div class="container privacy__inner">
-      <div class="privacy__content reveal">
-        <span class="badge mb-lg">Local-First</span>
-        <h2>Your data never<br>leaves your machine</h2>
-        <p>Every productivity app wants your data on their servers. Every AI assistant needs an API key and a monthly bill. The bean disagrees.</p>
-        <div class="privacy__list">
-          <div class="privacy__item">
-            <span class="privacy__item-icon"><i data-lucide="home"></i></span>
-            <span><strong>On-device inference</strong> — AI runs directly on your hardware via Microsoft Foundry Local. No API calls, no cloud.</span>
-          </div>
-          <div class="privacy__item">
-            <span class="privacy__item-icon"><i data-lucide="shield-off"></i></span>
-            <span><strong>No accounts</strong> — No sign-up, no login, no email. Just launch and use.</span>
-          </div>
-          <div class="privacy__item">
-            <span class="privacy__item-icon"><i data-lucide="badge-dollar-sign"></i></span>
-            <span><strong>Free forever</strong> — No API keys, no subscriptions, no usage limits. MIT licensed.</span>
-          </div>
-          <div class="privacy__item">
-            <span class="privacy__item-icon"><i data-lucide="unlock"></i></span>
-            <span><strong>Open source</strong> — Inspect every line. Fork it. Modify it. It's yours.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="privacy__visual reveal">
-        <div class="privacy__diagram" role="img" aria-label="Architecture: Browser talks to Python backend, which runs on-device AI inference via Foundry Local, and reads/writes to a local SQLite store. No cloud.">┌─────────────────────────────────┐
-│  <span style="color:var(--c-primary)">Your Browser (PWA)</span>              │
-│  public/index.html              │
-└──────────────┬──────────────────┘
-               │ AG-UI SSE
-               ▼
-┌─────────────────────────────────┐
-│  <span style="color:var(--c-primary)">Python Backend</span>                  │
-│  FastAPI + Agent Framework      │
-└──────────────┬──────────────────┘
-               │ Foundry Local SDK
-               ▼
-┌─────────────────────────────────┐
-│  <span style="color:var(--c-accent)">On-Device AI</span>                    │
-│  NPU / GPU / CPU                │
-│  Phi-4, Qwen, etc.             │
-└─────────────────────────────────┘
-
-  <span style="color:var(--c-success)">✓ Everything runs on localhost</span>
-  <span style="color:var(--c-success)">✓ Zero network requests to AI</span>
-  <span style="color:var(--c-success)">✓ Data stays in-memory</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ HOW IT WORKS (condensed) ═══ -->
-  <section class="steps">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="badge mb-lg">Quick Start</span>
-        <h2>Up and running in 60 seconds</h2>
-        <p>No configuration files. No environment variables. Just clone and launch.</p>
-      </div>
-
-      <div class="steps__grid stagger">
-        <div class="step reveal">
-          <h3>Install Foundry Local</h3>
-          <p class="text-2">One command installs the AI runtime. It handles model downloads, hardware detection, and execution provider setup.</p>
-          <div class="code-block" style="margin-top: var(--s-md)">
-            <div class="code-block__header">
-              <span class="code-block__tab"><span class="code-block__tab-icon">⌨</span>terminal</span><span class="code-block__winctrl"><span class="code-block__winbtn">—</span><span class="code-block__winbtn">□</span><span class="code-block__winbtn">✕</span></span>
-            </div>
-            <pre><span class="cmd">winget</span> install Microsoft.FoundryLocal</pre>
-          </div>
-        </div>
-
-        <div class="step reveal">
-          <h3>Launch taskbean</h3>
-          <p class="text-2">Clone the repo and run the launcher. It installs Python dependencies, starts the server, and opens your browser.</p>
-          <div class="code-block" style="margin-top: var(--s-md)">
-            <div class="code-block__header">
-              <span class="code-block__tab"><span class="code-block__tab-icon">⌨</span>terminal</span><span class="code-block__winctrl"><span class="code-block__winbtn">—</span><span class="code-block__winbtn">□</span><span class="code-block__winbtn">✕</span></span>
-            </div>
-            <pre><span class="cmd">git</span> clone https://github.com/taskbean/taskbean
-<span class="cmd">cd</span> taskbean && <span class="cmd">./launch.cmd</span></pre>
-          </div>
-        </div>
-
-        <div class="step reveal">
-          <h3>Talk to the bean</h3>
-          <p class="text-2">Start typing. The AI manages your tasks, sets reminders, extracts action items from documents, and plans your day.</p>
-          <div class="code-block" style="margin-top: var(--s-md)">
-            <div class="code-block__header">
-              <span class="code-block__tab"><span class="code-block__tab-icon">⌨</span>taskbean</span><span class="code-block__winctrl"><span class="code-block__winbtn">—</span><span class="code-block__winbtn">□</span><span class="code-block__winbtn">✕</span></span>
-            </div>
-            <pre><span class="str">"Add a task to review PRs by Friday"</span>
-<span class="str">"Remind me to stretch in 30 minutes"</span>
-<span class="str">"Plan my day"</span></pre>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center reveal" style="margin-top: var(--s-2xl)">
-        <a href="how-it-works.html" class="btn btn--ghost">Learn more about the architecture →</a>
       </div>
     </div>
   </section>
