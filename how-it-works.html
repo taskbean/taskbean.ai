@@ -139,20 +139,35 @@
             <span class="arch-layer__host">Microsoft Foundry Local</span>
           </div>
           <div class="arch-layer__body">
+            <p class="arch-layer__lede">ONNX Runtime auto-selects the best execution provider (EP) for each model, based on detected hardware.</p>
             <div class="arch-runtime">
               <div class="arch-chip-card" data-accel="npu">
                 <span class="arch-chip-card__kind">NPU</span>
-                <span class="arch-chip-card__ep">VitisAI EP</span>
+                <span class="arch-chip-card__label">auto-selected EP</span>
+                <ul class="arch-chip-card__eps" role="list">
+                  <li><span>VitisAI</span><em>AMD Ryzen AI</em></li>
+                  <li><span>QNN</span><em>Qualcomm Hexagon</em></li>
+                  <li><span>OpenVINO</span><em>Intel</em></li>
+                </ul>
               </div>
               <div class="arch-chip-card" data-accel="gpu">
                 <span class="arch-chip-card__kind">GPU</span>
-                <span class="arch-chip-card__ep">MIGraphX EP</span>
+                <span class="arch-chip-card__label">auto-selected EP</span>
+                <ul class="arch-chip-card__eps" role="list">
+                  <li><span>CUDA&nbsp;/&nbsp;TensorRT</span><em>NVIDIA</em></li>
+                  <li><span>WebGPU</span><em>incl. Apple Metal</em></li>
+                  <li><span>OpenVINO</span><em>Intel</em></li>
+                </ul>
               </div>
               <div class="arch-chip-card" data-accel="cpu">
                 <span class="arch-chip-card__kind">CPU</span>
-                <span class="arch-chip-card__ep">Default EP</span>
+                <span class="arch-chip-card__label">always available</span>
+                <ul class="arch-chip-card__eps" role="list">
+                  <li><span>CPUExecutionProvider</span><em>fallback</em></li>
+                </ul>
               </div>
             </div>
+            <p class="arch-layer__foot"><span class="arch-layer__foot-label">Platforms</span> Windows &middot; macOS (Apple Silicon) &middot; Linux</p>
             <p class="arch-layer__foot"><span class="arch-layer__foot-label">Models</span> Phi-4 Mini &middot; Qwen 2.5 &middot; Phi-4 Multimodal &middot; more</p>
           </div>
         </div>

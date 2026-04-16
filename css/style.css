@@ -1683,9 +1683,9 @@
   .arch-chip-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 4px;
-    padding: var(--s-md) var(--s-sm);
+    padding: var(--s-md);
     background: var(--c-bg);
     border: 1px solid var(--c-border);
     border-radius: var(--r-md);
@@ -1714,10 +1714,50 @@
   .arch-chip-card[data-accel="gpu"] .arch-chip-card__kind { color: var(--c-accent); }
   .arch-chip-card[data-accel="cpu"] .arch-chip-card__kind { color: var(--c-text); }
 
-  .arch-chip-card__ep {
+  .arch-chip-card__label {
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    color: var(--c-text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+
+  .arch-chip-card__eps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .arch-chip-card__eps li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s-sm);
     font-family: var(--f-mono);
     font-size: 0.75rem;
+    color: var(--c-text-2);
+    padding: 2px 0;
+    border-top: 1px dashed var(--c-border);
+  }
+
+  .arch-chip-card__eps li:first-child {
+    border-top: 0;
+  }
+
+  .arch-chip-card__eps span {
+    color: var(--c-text);
+  }
+
+  .arch-chip-card__eps em {
+    font-style: normal;
+    font-size: 0.7rem;
     color: var(--c-text-3);
+    white-space: nowrap;
   }
 
   .arch-layer__foot {
@@ -1801,13 +1841,16 @@
       text-align: center;
     }
     .arch-runtime {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--s-xs);
+      grid-template-columns: 1fr;
+      gap: var(--s-sm);
     }
     .arch-chip-card {
-      padding: var(--s-sm) 4px;
+      padding: var(--s-sm);
     }
-    .arch-chip-card__ep {
+    .arch-chip-card__eps li {
+      font-size: 0.7rem;
+    }
+    .arch-chip-card__eps em {
       font-size: 0.65rem;
     }
     .arch-routes li {
