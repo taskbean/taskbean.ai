@@ -3,41 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A120E">
   <title>How It Works — taskbean</title>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="c82a8caa-5d07-47bd-8e62-52bf5947c08b"></script>
   <meta name="description" content="Learn how taskbean uses on-device AI through Microsoft Foundry Local to manage your tasks privately. Architecture, technology stack, and data flow.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="taskbean">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="How taskbean works — on-device AI via Foundry Local">
+  <meta property="og:description" content="Architecture, technology stack, and data flow for a privacy-first AI task manager.">
+  <meta property="og:url" content="https://taskbean.ai/how-it-works.html">
+  <meta property="og:image" content="https://taskbean.ai/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="taskbean — the AI task manager that lives on your machine">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How taskbean works — on-device AI via Foundry Local">
+  <meta name="twitter:description" content="Architecture, technology stack, and data flow for a privacy-first AI task manager.">
+  <meta name="twitter:image" content="https://taskbean.ai/assets/og-image.png">
+  <meta name="twitter:image:alt" content="taskbean — the AI task manager that lives on your machine">
+
   <link rel="canonical" href="https://taskbean.ai/how-it-works.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
   <link rel="stylesheet" href="css/style.css">
-  <script src="vendor/lucide.min.js"></script>
+  <script defer src="vendor/lucide.min.js"></script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ═══ NAVIGATION ═══ -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="taskbean home">
-        <img src="assets/wordmark-nav.png" alt="taskbean" class="nav__wordmark" width="115" height="32">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/wordmark-nav.png" alt="taskbean" class="nav__wordmark">
       </a>
-      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
-      <div class="nav__links">
+      <div class="nav__links" id="nav-links">
         <a href="how-it-works.html" class="nav__link">How It Works</a>
         <a href="https://docs.taskbean.ai" class="nav__link">Docs</a>
         <a href="about.html" class="nav__link">About</a>
       </div>
       <div class="nav__actions">
-        <a href="https://github.com/taskbean/taskbean" class="nav__github" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          <span>Star on GitHub</span>
+        <a href="https://github.com/taskbean/taskbean" class="nav__github" target="_blank" rel="noopener" aria-label="Star taskbean on GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span class="nav__github-label">Star</span>
+          <img class="nav__github-count" src="https://img.shields.io/github/stars/taskbean/taskbean?style=flat&label=&labelColor=%231A120E&color=%23E8863C" alt="GitHub stars" loading="lazy" width="44" height="20" decoding="async">
         </a>
-        <a href="https://github.com/taskbean/taskbean#install" class="btn btn--primary">Download</a>
+        <a href="https://github.com/taskbean/taskbean#quick-start" class="btn btn--primary">Download</a>
       </div>
     </div>
   </nav>
+
+  <main id="main">
 
   <!-- ═══ PAGE HERO ═══ -->
   <section class="hiw-hero">
@@ -56,43 +83,124 @@
         <p>Three layers, one machine. Everything runs on localhost.</p>
       </div>
 
-      <div class="arch-diagram reveal">┌──────────────────────────────────────────────────────────────────────────────┐
-│                         <span style="color:var(--c-primary)">Browser (PWA)</span>                                     │
-│                                                                              │
-│  public/index.html — single-file vanilla JS SPA, no build step              │
-│  Themes · Model Picker · Telemetry Panel · AG-UI Chat · Service Worker      │
-└─────────────────────────────────┬────────────────────────────────────────────┘
-                                  │
-                          AG-UI SSE (Server-Sent Events)
-                                  │
-                                  ▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                      <span style="color:var(--c-primary)">Python Backend (FastAPI)</span>                              │
-│                                                                              │
-│  main.py ─── agent.py ─── tools.py ─── state.py                             │
-│     │                                                                        │
-│     ├── /api/command    →  AG-UI multi-turn tool-calling agent               │
-│     ├── /api/extract    →  File parsing via MCP + MarkItDown                 │
-│     ├── /api/models/*   →  Model catalog, switch, download                   │
-│     ├── /api/health     →  System metrics + model readiness                  │
-│     └── /api/telemetry  →  OTel span stream for nerd panel                   │
-└─────────────────────────────────┬────────────────────────────────────────────┘
-                                  │
-                        Foundry Local SDK (FFI)
-                                  │
-                                  ▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                       <span style="color:var(--c-accent)">On-Device AI Runtime</span>                                │
-│                                                                              │
-│  Microsoft Foundry Local — manages model lifecycle                           │
-│                                                                              │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐                          │
-│  │  <span style="color:var(--c-success)">NPU</span>        │  │  <span style="color:var(--c-success)">GPU</span>        │  │  <span style="color:var(--c-success)">CPU</span>        │                          │
-│  │  VitisAI EP  │  │  MIGraphX EP │  │  Default EP  │                          │
-│  └─────────────┘  └─────────────┘  └─────────────┘                          │
-│                                                                              │
-│  Models: Phi-4 Mini · Qwen 2.5 · Phi-4 Multimodal · more                    │
-└──────────────────────────────────────────────────────────────────────────────┘</div>
+      <div class="arch-diagram reveal" aria-label="System architecture: browser PWA to Python backend to on-device AI runtime">
+        <div class="arch-layer arch-layer--client">
+          <div class="arch-layer__head">
+            <span class="arch-layer__chip" data-tone="client">Layer 1</span>
+            <h3 class="arch-layer__title">Browser <span class="arch-layer__tag">(PWA)</span></h3>
+            <span class="arch-layer__host">localhost:2326</span>
+          </div>
+          <div class="arch-layer__body">
+            <p class="arch-layer__lede"><code>public/index.html</code> — single-file vanilla JS SPA, no build step</p>
+            <ul class="arch-pills" role="list">
+              <li>Themes</li>
+              <li>Model Picker</li>
+              <li>Telemetry Panel</li>
+              <li>AG-UI Chat</li>
+              <li>Service Worker</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="arch-link" aria-hidden="true">
+          <span class="arch-link__label">AG-UI&nbsp;·&nbsp;Server-Sent Events</span>
+          <span class="arch-link__line"></span>
+          <span class="arch-link__arrow"></span>
+        </div>
+
+        <div class="arch-layer arch-layer--server">
+          <div class="arch-layer__head">
+            <span class="arch-layer__chip" data-tone="server">Layer 2</span>
+            <h3 class="arch-layer__title">Python Backend <span class="arch-layer__tag">(FastAPI)</span></h3>
+            <span class="arch-layer__host">localhost:2326</span>
+          </div>
+          <div class="arch-layer__body">
+            <p class="arch-layer__lede"><code>main.py</code> → <code>agent.py</code> → <code>tools.py</code> → <code>state.py</code></p>
+            <ul class="arch-routes" role="list">
+              <li><code>POST /api/command</code><span>AG-UI multi-turn tool-calling agent</span></li>
+              <li><code>POST /api/extract</code><span>File parsing via MCP + MarkItDown</span></li>
+              <li><code>&nbsp;&nbsp;GET /api/models/*</code><span>Catalog, switch, download</span></li>
+              <li><code>&nbsp;&nbsp;GET /api/health</code><span>System metrics + model readiness</span></li>
+              <li><code>&nbsp;&nbsp;GET /api/telemetry</code><span>OTel span stream for nerd panel</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="arch-link" aria-hidden="true">
+          <span class="arch-link__label">Foundry Local SDK&nbsp;·&nbsp;FFI</span>
+          <span class="arch-link__line"></span>
+          <span class="arch-link__arrow"></span>
+        </div>
+
+        <div class="arch-layer arch-layer--runtime">
+          <div class="arch-layer__head">
+            <span class="arch-layer__chip" data-tone="runtime">Layer 3</span>
+            <h3 class="arch-layer__title">On-Device AI Runtime</h3>
+            <span class="arch-layer__host">Microsoft Foundry Local</span>
+          </div>
+          <div class="arch-layer__body">
+            <p class="arch-layer__lede">ONNX Runtime auto-selects the best execution provider (EP) for each model, based on detected hardware.</p>
+            <div class="arch-runtime">
+              <div class="arch-chip-card" data-accel="npu">
+                <span class="arch-chip-card__kind">NPU</span>
+                <span class="arch-chip-card__label">auto-selected EP</span>
+                <ul class="arch-chip-card__eps" role="list">
+                  <li><span>VitisAI</span><em>AMD Ryzen AI</em></li>
+                  <li><span>QNN</span><em>Qualcomm Hexagon</em></li>
+                  <li><span>OpenVINO</span><em>Intel</em></li>
+                </ul>
+              </div>
+              <div class="arch-chip-card" data-accel="gpu">
+                <span class="arch-chip-card__kind">GPU</span>
+                <span class="arch-chip-card__label">auto-selected EP</span>
+                <ul class="arch-chip-card__eps" role="list">
+                  <li><span>CUDA&nbsp;/&nbsp;TensorRT</span><em>NVIDIA</em></li>
+                  <li><span>WebGPU</span><em>incl. Apple Metal</em></li>
+                  <li><span>OpenVINO</span><em>Intel</em></li>
+                </ul>
+              </div>
+              <div class="arch-chip-card" data-accel="cpu">
+                <span class="arch-chip-card__kind">CPU</span>
+                <span class="arch-chip-card__label">always available</span>
+                <ul class="arch-chip-card__eps" role="list">
+                  <li><span>CPUExecutionProvider</span><em>fallback</em></li>
+                </ul>
+              </div>
+            </div>
+            <p class="arch-layer__foot"><span class="arch-layer__foot-label">Platforms</span> Windows &middot; macOS (Apple Silicon) &middot; Linux</p>
+            <p class="arch-layer__foot"><span class="arch-layer__foot-label">Models</span> Phi-4 Mini &middot; Qwen 2.5 &middot; Phi-4 Multimodal &middot; more</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY LOCAL-FIRST ═══ -->
+  <section class="steps" aria-labelledby="why-local">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 id="why-local">Why local-first</h2>
+        <p>Every productivity app wants your data on their servers. Every AI assistant needs an API key and a monthly bill. The bean disagrees.</p>
+      </div>
+
+      <div class="steps__grid stagger">
+        <div class="step reveal">
+          <h3>On-device inference</h3>
+          <p class="text-2">AI runs directly on your hardware via Microsoft Foundry Local. No API calls, no cloud round-trip, no rate limits.</p>
+        </div>
+        <div class="step reveal">
+          <h3>No accounts</h3>
+          <p class="text-2">No sign-up, no login, no email. Launch and use — your task list isn't gated by a cookie consent flow.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Free forever</h3>
+          <p class="text-2">No API keys, no subscriptions, no usage limits. MIT licensed. Your bill doesn't scale with your productivity.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Open source</h3>
+          <p class="text-2">Inspect every line. Fork it. Modify it. It's yours. GitHub, issues, PRs — all public.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -189,17 +297,51 @@
     </div>
   </section>
 
+  <!-- ═══ CLI + AGENT SKILL ═══ -->
+  <section class="steps" id="cli-agent">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Your agent logs its own work.</h2>
+        <p>taskbean ships with a CLI and an Agent Skill manifest. Install the CLI once, link it to your coding agent, and every task it closes shows up in your own task list. No copy-paste, no Slack recaps.</p>
+      </div>
+
+      <div class="steps__grid stagger">
+        <div class="step reveal">
+          <h3>1. Install the CLI</h3>
+          <div class="code-block"><pre><code>npm install -g taskbean</code></pre></div>
+          <p class="text-2">One command. Works on macOS, Linux, and Windows (via WSL or native Node).</p>
+        </div>
+
+        <div class="step reveal">
+          <h3>2. Link your agent</h3>
+          <div class="code-block"><pre><code>bean install --agent copilot</code></pre></div>
+          <p class="text-2">Drops a <code>SKILL.md</code> into your agent's skills directory (e.g. <code>.agents/skills/taskbean/</code>, or <code>.claude/skills/</code> for Claude Code). Verified with <strong>GitHub Copilot CLI</strong>, <strong>Claude Code</strong>, <strong>OpenCode</strong>, and <strong>OpenAI Codex</strong>. Any Agent Skills-compatible agent auto-discovers taskbean.</p>
+        </div>
+
+        <div class="step reveal">
+          <h3>3. Work normally</h3>
+          <div class="code-block"><pre><code>bean add "Ship the new landing page"
+bean done 42 --note "Merged in #318"
+bean report --today</code></pre></div>
+          <p class="text-2">Your agent calls these on its own as it completes work. The task list fills in without hand-tracking. Run <code>bean report</code> at EOD — it writes itself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ CTA ═══ -->
   <section class="cta-section">
     <div class="container">
       <h2 class="reveal">Ready to try it?</h2>
       <p class="reveal">Three commands. Sixty seconds. Fully local AI task management.</p>
       <div class="hero__actions reveal">
-        <a href="https://github.com/taskbean/taskbean#install" class="btn btn--primary btn--large">Get Started</a>
+        <a href="https://github.com/taskbean/taskbean#quick-start" class="btn btn--primary btn--large">Get Started</a>
         <a href="https://docs.taskbean.ai" class="btn btn--ghost btn--large">Read the Docs</a>
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ═══ FOOTER ═══ -->
   <footer class="footer">
@@ -217,6 +359,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 </html>

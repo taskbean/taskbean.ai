@@ -17,14 +17,30 @@
   const toggle = document.querySelector('.nav__toggle');
   const links = document.querySelector('.nav__links');
   if (toggle && links) {
+    const closeMenu = () => {
+      if (!links.classList.contains('open')) return;
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.focus();
+    };
     toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', links.classList.contains('open'));
+      const isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
     });
     // Close on link click
     links.querySelectorAll('a').forEach(a =>
       a.addEventListener('click', () => links.classList.remove('open'))
     );
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenu();
+    });
+    // Close on outside click
+    document.addEventListener('click', e => {
+      if (!links.classList.contains('open')) return;
+      if (toggle.contains(e.target) || links.contains(e.target)) return;
+      closeMenu();
+    });
   }
 
   // ── Active nav link ───────────────────────────────────────────────
@@ -94,7 +110,7 @@
     });
   });
 
-  // ── Initialize Lucide icons inside mockup ──────────────────────
+  // ── Initialize Lucide icons ───────────────────────────────────
   if (window.lucide) {
     lucide.createIcons();
   }
@@ -103,10 +119,8 @@
   const showcase = document.querySelector('.showcase');
   if (showcase) {
     const panels = showcase.querySelectorAll('.showcase__panel');
-    const scenes = showcase.querySelectorAll('.mockup-scene');
+    const scenes = showcase.querySelectorAll('.scene-img');
     const dots   = showcase.querySelectorAll('.showcase__dot');
-    const appbar = showcase.querySelector('.mockup-appbar');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     let activeScene = 1;
 
@@ -114,58 +128,34 @@
       if (num === activeScene) return;
       activeScene = num;
 
-      // Update panels
       panels.forEach(p => {
         p.classList.toggle('panel-active', +p.dataset.scene === num);
       });
 
-      // Cross-fade scenes
       scenes.forEach(s => {
-        const isTarget = +s.dataset.scene === num;
-        s.classList.toggle('scene-active', isTarget);
-        // Reset scene-el animations for the incoming scene
-        if (isTarget) {
-          s.querySelectorAll('.scene-el').forEach(el => {
-            el.style.transitionDelay = reducedMotion ? '0ms' : `${el.dataset.delay || 0}ms`;
-          });
-        }
+        s.classList.toggle('scene-active', +s.dataset.scene === num);
       });
 
-      // Sync dots
       dots.forEach(d => {
         const isActive = +d.dataset.scene === num;
         d.classList.toggle('dot-active', isActive);
-        d.setAttribute('aria-selected', isActive);
+        d.setAttribute('aria-current', isActive ? 'true' : 'false');
       });
-
-      // Switch active app bar tab (Projects for scene 4, Tasks for 1-3)
-      if (appbar) {
-        const activeTab = num === 4 ? 'projects' : 'tasks';
-        appbar.querySelectorAll('.mockup-appbar__tab[data-tab]').forEach(t => {
-          t.classList.toggle('mockup-appbar__tab--active', t.dataset.tab === activeTab);
-        });
-      }
-
-      // Re-render Lucide icons in newly visible scene
-      if (window.lucide) lucide.createIcons();
     }
 
-    // Activate first panel immediately
     panels[0]?.classList.add('panel-active');
+    scenes[0]?.classList.add('scene-active');
+    if (dots[0]) {
+      dots[0].classList.add('dot-active');
+      dots[0].setAttribute('aria-current', 'true');
+    }
 
-    // Set initial scene-el delays for scene 1
-    scenes[0]?.querySelectorAll('.scene-el').forEach(el => {
-      el.style.transitionDelay = reducedMotion ? '0ms' : `${el.dataset.delay || 0}ms`;
-    });
-
-    // Observe panels entering viewport center
     if ('IntersectionObserver' in window) {
       const panelObserver = new IntersectionObserver(
         entries => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              const sceneNum = +entry.target.dataset.scene;
-              switchScene(sceneNum);
+              switchScene(+entry.target.dataset.scene);
             }
           });
         },
@@ -174,12 +164,10 @@
       panels.forEach(p => panelObserver.observe(p));
     }
 
-    // Dot click handlers
     dots.forEach(dot => {
       dot.addEventListener('click', () => {
         const num = +dot.dataset.scene;
         switchScene(num);
-        // Scroll the matching panel into view
         const targetPanel = showcase.querySelector(`.showcase__panel[data-scene="${num}"]`);
         if (targetPanel) {
           targetPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -199,7 +187,7 @@
     document.querySelectorAll('a.btn').forEach(btn => {
       const text = btn.textContent.trim().toLowerCase();
       const href = btn.getAttribute('href') || '';
-      if (text.includes('download') || text.includes('get started') || href.includes('#install')) {
+      if (text.includes('download') || text.includes('get started') || text.includes('install the cli') || href.includes('#quick-start')) {
         const isNav = btn.closest('.nav__actions');
         if (isNav) {
           btn.href = 'https://github.com/taskbean/taskbean';
